@@ -59,13 +59,13 @@ using json = nlohmann::json;
 #define M_PI 3.14159265358979323846
 #endif
 
-// ===== FORWARD DECLARATIONS =====
+// FORWARD DECLARATIONS
 class AudioAnalyzer;
 class SimpleGuitarSystem;
 class LEDStripController;
 class SerialController;
 
-// ===== ACCESSIBILITY =====
+// ACCESSIBILITY
 extern bool   g_showAccessibilityPopup;
 extern int    g_colorBlindMode;
 extern bool   g_highContrast;
@@ -78,14 +78,14 @@ extern ImVec4 g_subTabColor;
 extern ImVec4 g_subTabColorHov;
 extern ImVec4 g_subTabColorAct;
 
-// ===== D3D =====
+// D3D
 extern ID3D11Device* g_pd3dDevice;
 extern ID3D11DeviceContext* g_pd3dDeviceContext;
 extern IDXGISwapChain* g_pSwapChain;
 extern ID3D11RenderTargetView* g_mainRenderTargetView;
 extern ID3D11Texture2D* g_sharedTexture;
 
-// ===== MIDI =====
+// MIDI
 extern MidiBackend               g_currentMidiBackend;
 extern const char* g_midiBackendNames[];
 extern std::unique_ptr<RtMidiIn> g_midiIn;
@@ -99,43 +99,43 @@ extern LoopMidiState             g_loopMidi;
 extern std::vector<VirtualMidiPort> g_virtualPorts;
 extern char                      g_newVirtualPortName[64];
 
-// ===== OSC =====
+// OSC
 extern std::unique_ptr<UdpTransmitSocket> g_oscSender;
 extern std::vector<OSCDestination>        g_oscDestinations;
 
-// ===== CONTROL MAPPINGS =====
+// CONTROL MAPPINGS
 extern std::map<std::string, ControlMapping> g_controlMappings;
 extern ControlMapping* g_learningMapping;
 
-// ===== PRESETS =====
+// PRESETS
 extern std::map<int, OSCPreset> g_presets;
 extern int  g_currentPresetIndex;
 extern int  g_selectedPresetForHelp;
 extern bool g_showAboutPopup;
 extern bool g_showPresetGuidePopup;
 
-// ===== AUDIO =====
+// AUDIO
 extern AudioAnalyzer* g_audioAnalyzer;
 extern std::vector<AudioBandMapping> g_audioBandMappings;
 extern std::vector<LFOChannel>       g_lfoChannels;
 extern std::vector<PulseChannel>     g_pulseChannels;
 
-// ===== GUITAR =====
+// GUITAR
 extern SimpleGuitarSystem* g_guitarSystem;
 
-// ===== LED STRIP =====
+// LED STRIP
 extern LEDStripController g_ledStrip;
 
-// ===== SPOUT =====
+// SPOUT
 extern spoutDX* g_spout;
 extern spoutDX* g_spoutReceiver;
 extern std::vector<std::string> g_spoutSenderList;
 
-// ===== ART-NET =====
+// ART-NET
 extern SOCKET                     g_artnetSocket;
 extern std::vector<ArtNetMapping> g_artnetMappings;
 
-// ===== MQTT =====
+// MQTT
 extern mqtt::async_client* g_mqttClient;
 extern std::mutex                     g_mqttMutex;
 extern std::vector<MQTTMessage>       g_mqttLog;
@@ -143,24 +143,24 @@ extern int                            g_mqttLogMax;
 extern std::vector<MQTTSubscription>  g_mqttSubscriptions;
 extern std::vector<MQTTPublishPreset> g_mqttPresets;
 
-// ===== HARDWARE =====
+// HARDWARE
 extern std::vector<HWDevice> g_hwDevices;
 extern std::vector<HWDevice> g_hwPendingDevices;
 extern int                   g_selectedHWDevice;
 extern bool                  g_hwNewDeviceNotification;
 
-// ===== SEQUENCES =====
+// SEQUENCES
 extern std::vector<TimedSequenceV2> g_sequences;
 extern int                          g_selectedSequence;
 
-// ===== AFTER EFFECTS =====
+// AFTER EFFECTS
 extern AERecordingState g_aeRecState;
 
-// ===== MISC =====
+// MISC
 extern std::atomic<bool> g_running;
 extern int               g_ledComboLowBandHz;
 
-// ===== FUNCTION DECLARATIONS =====
+// FUNCTION DECLARATIONS
 
 // UI
 void PushSubTabStyle();

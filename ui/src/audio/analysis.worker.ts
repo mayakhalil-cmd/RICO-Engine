@@ -13,7 +13,7 @@ let rate = 48000
 let channels = 2
 const HOP = 512
 
-// ---- buffers ----
+// buffers
 const RING = 1 << 16
 const ringL = new Float32Array(RING)
 const ringR = new Float32Array(RING)
@@ -34,7 +34,7 @@ function resize(n: number) {
   mag = new Float64Array(n / 2)
 }
 
-// ---- loudness (EBU R128 / BS.1770 K-weighting) ----
+// loudness (EBU R128 / BS.1770 K-weighting)
 let kShelf: Biquad, kHigh: Biquad
 const kState = [new Float64Array(4), new Float64Array(4)]       // per channel: two stages x2 memory
 const kState2 = [new Float64Array(4), new Float64Array(4)]
@@ -56,7 +56,7 @@ function biquad(f: Biquad, s: Float64Array, x: number) {
   s[1] = s[0]; s[0] = x; s[3] = s[2]; s[2] = y
   return y
 }
-// ---- shaping (filters, gate, compressor) before the analysis ----
+// shaping (filters, gate, compressor) before the analysis
 let shapeFilters: Biquad[] = []
 let shapeState: Float64Array[][] = [[], []]
 let shapeKey = ''
@@ -77,12 +77,12 @@ function buildShape(sh: Shape) {
 let blockSum = 0, blockCount = 0
 const blocks: number[] = []   // mean square of each 100 ms block, last 30
 
-// ---- per band memory ----
+// per band memory
 interface BandMem { env: number; slowMax: number; lastDb: number; fluxHist: number[]; lastHit: number; hit: number }
 let mem: BandMem[] = []
 const freshMem = (): BandMem => ({ env: 0, slowMax: -60, lastDb: -120, fluxHist: [], lastHit: -1, hit: 0 })
 
-// ---- onsets and tempo ----
+// onsets and tempo
 const fluxHist: number[] = []
 const onsetEnv: number[] = []        // ~8 s of onset strength, one value per hop
 let onset = 0, lastOnsetT = -1, beat = 0, lastBeatT = -1
@@ -90,11 +90,11 @@ let bpm = 120, bpmConf = 0, lastTempo = 0
 let pitchHz = 0, clarity = 0, lastPitch = 0
 let time = 0
 
-// ---- harmonic and percussive parts (HPSS on the drawing spectrum) ----
+// harmonic and percussive parts (HPSS on the drawing spectrum)
 const HPSS_T = 11
 const specHist: Float32Array[] = []
 let harmonicFrac = 0.5
-// ---- what is playing ----
+// what is playing
 const SCENE_SEC = 1.6
 const speechEnv: number[] = []      // speech band level per hop, dB
 const rmsHist: number[] = []        // linear power per hop

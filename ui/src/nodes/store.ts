@@ -148,7 +148,7 @@ if (!graphs.some((g) => g.id === 'main')) {
   graphs = [{ id: 'main', name: 'Main', enabled: true, nodes: [a, b, c, d], wires: [wire(a.id, 'out', b.id, 'in'), wire(b.id, 'out', c.id, 'in'), wire(b.id, 'out', d.id, 'in')] }, ...graphs]
 }
 
-// ---- running ---------------------------------------------------------------------
+// running
 
 const states = new Map<string, NodeState>()                 // node id -> memory
 export const outputs = new Map<string, Record<string, Value>>()  // node id -> last outputs
@@ -300,7 +300,7 @@ window.setInterval(step, 1000 / 60)
 export const nodeState = (id: string) => states.get(id)
 export const NODE_COUNT = NODE_TYPES.length
 
-// ---- containers -----------------------------------------------------------------------
+// containers
 
 // A network and every network inside its containers (for saving and sharing).
 export function graphTree(id: string, from: Graph[] = graphs, seen = new Set<string>()): Graph[] {

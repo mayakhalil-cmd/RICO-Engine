@@ -111,7 +111,7 @@ export function mergeWorkspace(api: DockviewApi, fromId: string, where?: { group
   toast(`${from.name} added to this workspace.`, true)
 }
 
-// ---- undo for layout changes -------------------------------------------------
+// undo for layout changes
 
 const live = { id: '', snapshot: '', applying: false }
 

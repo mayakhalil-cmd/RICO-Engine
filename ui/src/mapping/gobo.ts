@@ -94,7 +94,7 @@ export function softEdge(o: GoboOptions) {
   return Math.min(1, o.aperture / Math.max(1, width))
 }
 
-// ---- which parts of the picture get light ----
+// which parts of the picture get light
 
 const GW = 800
 export function lightGrid(map: OutputMap, aspect: number, pad = 0, shapes: P2[][] = []): { w: number; h: number; on: Uint8Array } {
@@ -244,7 +244,7 @@ function simplify(pts: P2[], tol: number): P2[] {
   return pts.filter((_, i) => keep[i])
 }
 
-// ---- the plate, in millimetres ----
+// the plate, in millimetres
 
 export interface GoboPlan {
   openings: P2[][]        // mm, x right, y up, 0 = lens axis

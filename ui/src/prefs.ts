@@ -62,7 +62,7 @@ export function setPrefs(part: Partial<Prefs>) {
   listeners.forEach((l) => l(current))
 }
 
-// ---- colors ----------------------------------------------------------------
+// colors
 
 type RGB = [number, number, number]
 const rgb = (hex: string): RGB => {

@@ -64,7 +64,7 @@ export async function addStl(file: File): Promise<string> {
   return ''
 }
 
-// ---- the shapes, placed ----
+// the shapes, placed
 
 const goboCache = new Map<string, { key: string; geo: THREE.BufferGeometry }>()
 async function rawGeometry(p: BedPart): Promise<THREE.BufferGeometry | null> {

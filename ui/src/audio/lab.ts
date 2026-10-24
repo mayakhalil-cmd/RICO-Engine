@@ -85,7 +85,7 @@ export function useLab() {
 }
 export const getLab = () => ({ settings, source, device, monitor, running, status })
 
-// ---- the worker ----
+// the worker
 
 let worker: Worker | null = null
 let frame: LabFrame | null = null
@@ -136,7 +136,7 @@ export function usePreset(id: string) {
   if (p) setSettings((s) => ({ ...s, bands: p.bands() }))
 }
 
-// ---- signals ----
+// signals
 
 const NOTE = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 function publish(f: LabFrame) {
@@ -166,7 +166,7 @@ function publish(f: LabFrame) {
   x.chroma.forEach((c, i) => putAudioSignal(`audio:chroma:${NOTE[i]}`, `Note ${NOTE[i]}`, c))
 }
 
-// ---- sources ----
+// sources
 
 let ctx: AudioContext | null = null
 let tap: AudioWorkletNode | null = null

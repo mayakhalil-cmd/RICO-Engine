@@ -69,7 +69,7 @@ function top(d: TopDef): NodeType {
 const textCanvas = document.createElement('canvas')
 
 export const TEX_TYPES: NodeType[] = [
-  // ---- make pictures ----
+  // make pictures
   top({
     type: 'tex-noise', name: 'Noise', about: 'Flowing clouds', exposed: ['speed', 'scale'],
     params: [n('scale', 'Scale', 4, 0.1, 40), n('speed', 'Speed', 0.2, 0, 4), n('contrast', 'Contrast', 1.4, 0.1, 5), n('hue', 'Hue', 0.35, 0, 1), n('sat', 'Color', 0.8, 0, 1), n('warp', 'Warp', 1, 0, 4)],
@@ -119,7 +119,7 @@ export const TEX_TYPES: NodeType[] = [
     glsl: (p) => String(p.code),
   }),
 
-  // ---- bring pictures in ----
+  // bring pictures in
   {
     type: 'tex-text', name: 'Text', group: 'Texture', about: 'Words as a picture', ui: 'thumb',
     inputs: [{ key: 'text', label: 'text', type: 'text' }], outputs: [TEX()],
@@ -179,7 +179,7 @@ export const TEX_TYPES: NodeType[] = [
     release: (_s, id) => freeNode(id),
   },
 
-  // ---- change pictures ----
+  // change pictures
   top({
     type: 'tex-level', name: 'Level', about: 'Brightness, contrast, gamma, invert', texIn: ['in'], exposed: ['bright'],
     params: [n('bright', 'Brightness', 1, 0, 4), n('contrast', 'Contrast', 1, 0, 4), n('gamma', 'Gamma', 1, 0.1, 4), n('invert', 'Invert', 0, 0, 1), n('opacity', 'Opacity', 1, 0, 1)],
@@ -262,7 +262,7 @@ export const TEX_TYPES: NodeType[] = [
       vec4 now = texture(u_t0, uv); o = vec4(max(now.rgb, prev.rgb * u_p[0]), 1.0);`,
   }),
 
-  // ---- send pictures out ----
+  // send pictures out
   {
     type: 'tex-out', name: 'Picture out', group: 'Texture', about: 'Gives the picture a name, so Motion layers ("Node picture") and 3D materials can use it', ui: 'thumb',
     inputs: [TEX('in', 'picture')], outputs: [], params: [{ key: 'name', label: 'Name', kind: 'text', default: 'My picture' }, n('fps', 'Updates a second', 60, 1, 60, 1)],

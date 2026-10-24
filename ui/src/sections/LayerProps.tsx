@@ -21,7 +21,7 @@ import { KeyNav } from './KeyControls'
 // value you drag (or click to type), and a link to follow a signal. Used by
 // the Inspector and by the timeline when you twirl a layer open.
 
-// ---- one property row ----------------------------------------------------------
+// one property row
 
 export interface PropDef {
   key: string                  // the setting key on the layer (see ops.ts)
@@ -76,7 +76,7 @@ export function PropRow({ owner, def, layer, binding, compact }: { owner: string
   )
 }
 
-// ---- property lists ---------------------------------------------------------------
+// property lists
 
 export function transformDefs(scene: Scene): PropDef[] {
   const H = scene.height
@@ -130,7 +130,7 @@ export function propGroups(scene: Scene, l: Layer): { name: string; defs: PropDe
   return out
 }
 
-// ---- effects ------------------------------------------------------------------------
+// effects
 
 // Stills grabbed from the picture, to match a look against (like a still in a gallery).
 const stills: { name: string; px: Uint8Array }[] = []
@@ -283,7 +283,7 @@ export function EffectStack({ owner, effects, layer }: { owner: string; effects:
   )
 }
 
-// ---- masks -----------------------------------------------------------------------------
+// masks
 
 function MaskCard({ layer, mask, index }: { layer: Layer; mask: Mask; index: number }) {
   const scene = useCreate((s) => s.scene)
@@ -350,7 +350,7 @@ function PathKeys({ layer, mask, index }: { layer: Layer; mask: Mask; index: num
   )
 }
 
-// ---- the inspector -------------------------------------------------------------------------
+// the inspector
 
 // A group in Effect Controls: an icon, its name, and it opens and closes
 // (it remembers how you left it).

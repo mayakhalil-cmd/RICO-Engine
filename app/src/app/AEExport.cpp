@@ -1,6 +1,6 @@
 #include "src/ui/tabs/UICommon.h"
 
-// ===== AFTER EFFECTS KEYFRAME RECORDING FUNCTIONS =====
+// AFTER EFFECTS KEYFRAME RECORDING FUNCTIONS
 void RecordAEKeyframe() {
     if (!g_aeRecState.active) return;
 

@@ -67,7 +67,7 @@ interface State {
   spawnN?: number
 }
 
-// ---- floors, set by the 3D view each frame (world boxes) ----
+// floors, set by the 3D view each frame (world boxes)
 let floors: THREE.Box3[] = []
 export function setSymbioteFloors(b: THREE.Box3[]) { floors = b }
 const floorUnder = (p: THREE.Vector3) => {
@@ -76,7 +76,7 @@ const floorUnder = (p: THREE.Vector3) => {
   return best
 }
 
-// ---- where other symbiotes' tendrils land on this one (world space, one frame late) ----
+// where other symbiotes' tendrils land on this one (world space, one frame late)
 const incoming = new Map<THREE.Object3D, Map<THREE.Object3D, { p: THREE.Vector3; d: THREE.Vector3; h: number }[]>>()
 
 // points and directions on each thing's surface, in its own space (kept while its shape stays)
@@ -276,7 +276,7 @@ const hash = (n: number) => { const x = Math.sin(n * 127.1) * 43758.5453; return
 // a heartbeat: a sharp beat and a softer one after it
 const beat = (ph: number) => { const a = 0.5 + 0.5 * Math.sin(ph), b = 0.5 + 0.5 * Math.sin(ph - 0.9); return Math.pow(a, 8) + 0.5 * Math.pow(b, 8) }
 
-// ---- the body skin, built once ----
+// the body skin, built once
 function buildSkin(tris: Float32Array, blob: number, detail: number) {
   const box = new THREE.Box3()
   const v0 = new THREE.Vector3()
@@ -346,7 +346,7 @@ function buildSkin(tris: Float32Array, blob: number, detail: number) {
   return { g, size: Math.max(1e-3, (size.x + size.y + size.z) / 3) }
 }
 
-// ---- tubes ----
+// tubes
 interface TubeOpt { lobe?: (i: number) => number; seed?: number; vein?: (i: number, a: number) => number; bulge?: number; mix?: number }
 class TubeBuilder {
   pos: number[] = []; nor: number[] = []; idx: number[] = []; vein: number[] = []; mix: number[] = []
@@ -488,7 +488,7 @@ export function symbiote(obj: THREE.Object3D, o: Obj3D, t: number, others: () =>
   const tt = t * speed
   const down = new THREE.Vector3(0, -1, 0).transformDirection(inv)
 
-  // ---- the look ----
+  // the look
   if (sy.shader === 'own') {
     const own = Array.isArray(s.own) ? s.own[0] : s.own
     s.body.material = s.own; s.tube.material = own; s.dripMesh.material = own
@@ -497,7 +497,7 @@ export function symbiote(obj: THREE.Object3D, o: Obj3D, t: number, others: () =>
     s.body.material = s.mat; s.tube.material = s.mat; s.dripMesh.material = s.mat
   }
 
-  // ---- who is near ----
+  // who is near
   const base = s.base, baseN = s.baseN, V = base.length / 3
   const nearestSample = (p: THREE.Vector3) => {
     let bi = 0, bd = Infinity
@@ -583,7 +583,7 @@ export function symbiote(obj: THREE.Object3D, o: Obj3D, t: number, others: () =>
     })
   }
 
-  // ---- the skin this frame: alive, with veins under it ----
+  // the skin this frame: alive, with veins under it
   const cur = s.cur
   const self = Math.max(0, Math.min(1, sy.self)), bumps = Math.max(0, Math.min(1, sy.bumps))
   const amp = s.size * 0.05 * self, bAmp = s.size * 0.022 * bumps
@@ -621,7 +621,7 @@ export function symbiote(obj: THREE.Object3D, o: Obj3D, t: number, others: () =>
     cur[i * 3] = x + baseN[i * 3] * d; cur[i * 3 + 1] = y + baseN[i * 3 + 1] * d; cur[i * 3 + 2] = z + baseN[i * 3 + 2] * d
   }
 
-  // ---- mounds: the skin rises where tendrils leave it, swells toward near things, meets other symbiotes ----
+  // mounds: the skin rises where tendrils leave it, swells toward near things, meets other symbiotes
   const mounds: { p: THREE.Vector3; d: THREE.Vector3; h: number; s: number }[] = []
   for (const w of swells) mounds.push({ p: new THREE.Vector3(base[w.i * 3], base[w.i * 3 + 1], base[w.i * 3 + 2]), d: w.d, h: s.size * 0.05 * sy.swell * w.k * (0.5 + self), s: s.size * 0.22 })
   const inc = incoming.get(obj)
@@ -630,7 +630,7 @@ export function symbiote(obj: THREE.Object3D, o: Obj3D, t: number, others: () =>
     mounds.push({ p: new THREE.Vector3(base[n.i * 3], base[n.i * 3 + 1], base[n.i * 3 + 2]), d: m.d.clone().transformDirection(inv), h: m.h * toLocal, s: sigma * 1.2 })
   }
 
-  // ---- tendrils: shoot out, grab, stretch, snap ----
+  // tendrils: shoot out, grab, stretch, snap
   const tb = new TubeBuilder(Math.max(8, Math.min(16, Math.round(detail / 5))))
   const segs = Math.max(16, Math.min(56, Math.round(detail * 0.6)))
   const sent = new Map<THREE.Object3D, { p: THREE.Vector3; d: THREE.Vector3; h: number }[]>()
@@ -864,7 +864,7 @@ export function symbiote(obj: THREE.Object3D, o: Obj3D, t: number, others: () =>
   for (const [other, list] of sent) { let m = incoming.get(other); if (!m) { m = new Map(); incoming.set(other, m) } m.set(obj, list) }
   for (const [other, m] of incoming) if (!sent.has(other)) m.delete(obj)
 
-  // ---- apply the mounds to the skin (where they overlap they do not pile up too high) ----
+  // apply the mounds to the skin (where they overlap they do not pile up too high)
   if (mounds.length) {
     const D = (s.disp ??= new Float32Array(V * 3))
     D.fill(0)
@@ -904,7 +904,7 @@ export function symbiote(obj: THREE.Object3D, o: Obj3D, t: number, others: () =>
   s.geo.computeBoundingSphere()
   s.geo.computeBoundingBox()
 
-  // ---- write the tubes ----
+  // write the tubes
   const g = s.tube.geometry
   const nv = tb.pos.length
   if (nv > s.cap) {
@@ -927,7 +927,7 @@ export function symbiote(obj: THREE.Object3D, o: Obj3D, t: number, others: () =>
   }
   s.tube.visible = tb.idx.length > 0
 
-  // ---- drips: fall, land, spread, stay or fade ----
+  // drips: fall, land, spread, stay or fade
   const grav = 9.8 * 0.6 * sy.dripGravity
   const fadeAfter = Math.max(0.5, sy.puddleTime)
   const keep = sy.puddle === 'stay'

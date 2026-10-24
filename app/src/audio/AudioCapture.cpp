@@ -264,7 +264,7 @@ void ProcessAudioToDisplays() {
     AudioBands bands = g_audioAnalyzer->GetBands();    // UI/OSC (smoothed)
     AudioBands led = g_audioAnalyzer->GetLEDBands();   // LED serial (fast, low latency)
 
-    // ===== FREQUENCY-BASED BRIGHTNESS CALCULATION =====
+    // FREQUENCY-BASED BRIGHTNESS CALCULATION
     float brightnessMult = 1.0f;
     if (g_ledState.freqBrightness && g_ledState.connected) {
         // Calculate dominant frequency intensity
@@ -286,7 +286,7 @@ void ProcessAudioToDisplays() {
         brightnessMult = smoothBrightness;
     }
 
-    // ===== SEND AUDIO DATA TO LED STRIP =====
+    // SEND AUDIO DATA TO LED STRIP
     if (g_ledState.connected && g_ledState.audioReactive) {
         // Apply gains
         float lowProcessed = led.low * g_ledState.lowGain;
@@ -380,7 +380,7 @@ void ProcessAudioToDisplays() {
         lastPattern = g_ledState.currentPattern;
     }
 
-    // ===== SEND TO OSC MAPPINGS =====
+    // SEND TO OSC MAPPINGS
     for (const auto& mapping : g_audioBandMappings) {
         if (!mapping.enabled) continue;
 
@@ -427,7 +427,7 @@ void ProcessAudioToDisplays() {
     }
 
 
-    // ===== LIVE AFTER EFFECTS EXPORT =====
+    // LIVE AFTER EFFECTS EXPORT
     if (g_aeRecState.liveExport && g_audioAnalyzer) {
         AudioBands bands = g_audioAnalyzer->GetBands();
 
@@ -441,7 +441,7 @@ void ProcessAudioToDisplays() {
         file << "};\n";
         file.close();
     }
-    // ===== KEYFRAME RECORDING =====
+    // KEYFRAME RECORDING
     if (g_aeRecState.active && g_audioAnalyzer) {
         RecordAEKeyframe();
     }

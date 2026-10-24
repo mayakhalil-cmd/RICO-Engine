@@ -42,7 +42,7 @@ export function setEdit(part: Partial<State>) { Object.assign(st, part); emit() 
 const objData = () => getWorld().objects.find((o) => o.id === st.target)
 const meshNow = () => { const m = st.target ? objectOf(st.target) as THREE.Mesh | undefined : undefined; return m?.isMesh ? m : undefined }
 
-// ---- going in and out ----
+// going in and out
 
 function makeEditable(o: Obj3D): boolean {
   if (o.kind === 'mesh' && o.mesh) return true
@@ -97,7 +97,7 @@ export function exitMode() {
   if (id) select3d(id)
 }
 
-// ---- the overlay: points, wires, the brush ring and the move handle ----
+// the overlay: points, wires, the brush ring and the move handle
 
 let overlay: { mesh: THREE.Mesh; points: THREE.Points; wire: THREE.Mesh } | null = null
 const pivot = new THREE.Object3D()
@@ -181,7 +181,7 @@ function tick() {
 }
 requestAnimationFrame(tick)
 
-// ---- committing ----
+// committing
 
 function commit(data: MeshData, label: string, sel?: Set<number>) {
   const o = objData()
@@ -219,7 +219,7 @@ export function growSelection() {
   emit()
 }
 
-// ---- pointer work ----
+// pointer work
 
 const ray = new THREE.Raycaster()
 const ndc = (e: PointerEvent) => { const r = canvas3d.getBoundingClientRect(); return new THREE.Vector2(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1) }

@@ -16,7 +16,7 @@ function dragSignal(e: React.DragEvent, signal: string) {
   e.dataTransfer.effectAllowed = 'link'
 }
 
-// ---- MIDI ---------------------------------------------------------------------
+// MIDI
 
 function Knob({ value }: { value: number }) {
   const a0 = -225, a1 = 45
@@ -87,7 +87,7 @@ export function MidiControls() {
   )
 }
 
-// ---- OSC ------------------------------------------------------------------------
+// OSC
 
 function Spark({ values }: { values: number[] }) {
   if (values.length < 2) return <svg className="spark" viewBox="0 0 60 16" aria-hidden="true" />
@@ -140,7 +140,7 @@ export function OscAddresses() {
   )
 }
 
-// ---- audio ------------------------------------------------------------------------
+// audio
 
 export function AudioMeters() {
   const audio = useRico((s) => s.live.audio)
@@ -195,7 +195,7 @@ export function AudioMeters() {
   )
 }
 
-// ---- DMX ------------------------------------------------------------------------
+// DMX
 
 export function DmxGrid() {
   const dmx = useRico((s) => s.state?.dmx)
@@ -267,7 +267,7 @@ export function DmxGrid() {
   )
 }
 
-// ---- MQTT -------------------------------------------------------------------------
+// MQTT
 
 export function MqttTopics() {
   const mqtt = useRico((s) => s.state?.mqtt)

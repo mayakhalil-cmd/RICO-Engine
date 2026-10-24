@@ -7,7 +7,7 @@
 std::unique_ptr<UdpTransmitSocket> g_oscSender;
 std::vector<OSCDestination> g_oscDestinations;
 
-// ===== OSC LISTENER =====
+// OSC LISTENER
 class MidiOscListener : public osc::OscPacketListener {
 protected:
     virtual void ProcessMessage(const osc::ReceivedMessage& m, const IpEndpointName& remoteEndpoint) override {
@@ -79,7 +79,7 @@ protected:
     }
 };
 
-// ===== DESTINATION MANAGEMENT =====
+// DESTINATION MANAGEMENT
 void AddOSCDestination(const std::string& name, const std::string& ip, int port) {
     OSCDestination dest(name, ip, port);
     try {
@@ -145,7 +145,7 @@ void SendOSCToAllDestinations(const char* address, int value) {
     }
 }
 
-// ===== INIT & THREAD =====
+// INIT & THREAD
 void InitializeOSC() {
     try {
         g_oscSender = std::make_unique<UdpTransmitSocket>(IpEndpointName(g_config.oscIP, g_config.oscSendPort));

@@ -147,7 +147,7 @@ export const QUALITY: { id: string; name: string; about: string; part: Partial<P
   { id: 'draft', name: 'Fast', about: '0.28 mm layers, 15% infill.', part: { layer: 0.28, firstLayer: 0.28, perimeters: 2, infill: 0.15, solidLayers: 3, topLayers: 3, bottomLayers: 3 } },
 ]
 
-// ---- talking to the printer ----
+// talking to the printer
 
 export interface PrinterStatus { state: string; progress: number; file: string; nozzle?: [number, number]; bed?: [number, number]; error?: string; layer?: number; layers?: number }
 

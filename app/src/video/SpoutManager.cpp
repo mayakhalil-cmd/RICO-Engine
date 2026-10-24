@@ -175,7 +175,7 @@ bool UpdateSpoutReceiver() {
     return true;
 }
 
-// ---- Sending -------------------------------------------------------------
+// Sending
 
 bool SpoutSender_Start() {
     if (!g_spout) g_spout = new spoutDX();

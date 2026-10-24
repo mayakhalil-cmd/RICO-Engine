@@ -186,7 +186,7 @@ export function watch(w: Watch, usbStream?: Stream | null) {
   void tick()
 }
 
-// ---- ready rules people start from ----
+// ready rules people start from
 
 const rid = () => `r${Math.random().toString(36).slice(2, 8)}`
 export const RULE_PRESETS: { id: string; name: string; about: string; rule: () => Rule }[] = [

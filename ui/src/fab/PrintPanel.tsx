@@ -34,7 +34,7 @@ function N({ value, set, min, max, step = 0.1, digits = 1, suffix = '' }: { valu
   return <Scrub value={value} step={step} digits={digits} min={min} max={max} suffix={suffix} onChange={set} />
 }
 
-// ---- the bed in 3D: parts to drag, or the paths after slicing ----
+// the bed in 3D: parts to drag, or the paths after slicing
 function BedView({ bed, placed, layers, upto, show, onMove, boxes, boxTool, onBox, onMoveBox }: {
   bed: [number, number, number]; placed: Placed[]; layers: Layer[] | null; upto: number; show: 'parts' | 'paths'; onMove: (id: string, at: [number, number]) => void
   boxes: SupportBox[]; boxTool: 'enforce' | 'block' | null; onBox: (at: [number, number, number]) => void; onMoveBox: (id: string, at: [number, number]) => void

@@ -485,7 +485,7 @@ export function slice(tris: Float32Array, s0: SliceSettings, shells?: [number, n
   const bl = solidAll ? 0 : Math.max(0, Math.round(s.bottomLayers ?? s.solidLayers))
   const rnd = seeded(7)
 
-  // ---- supports, worked out from the top down on a coarse grid (supports.ts) ----
+  // supports, worked out from the top down on a coarse grid (supports.ts)
   let plan: ReturnType<typeof planSupports> | null = null
   if (s.support && s.support !== 'none') {
     const c = Math.max(0.5, span / 220)
@@ -500,7 +500,7 @@ export function slice(tris: Float32Array, s0: SliceSettings, shells?: [number, n
     if (!plan.base.some(Boolean) && !plan.trees.some((t) => t.length)) plan = null
   }
 
-  // ---- each layer cut into islands, a few layers ahead ----
+  // each layer cut into islands, a few layers ahead
   const cutCache = new Map<number, Island[]>()
   const islandsOf = (i: number): Island[] => {
     if (i < 0 || i >= n) return []
@@ -648,7 +648,7 @@ export function slice(tris: Float32Array, s0: SliceSettings, shells?: [number, n
     const paths: Path[] = []
     const W = (p: Path, w: number) => { if (Math.abs(w - lw) > 1e-6) p.w = w; return p }
 
-    // ---- the first layer: skirt and brim ----
+    // the first layer: skirt and brim
     if (i === 0 || (skirtBase && i < skirtH)) {
       if (i === 0 && s.skirt) {
         const pts: number[] = []
@@ -690,7 +690,7 @@ export function slice(tris: Float32Array, s0: SliceSettings, shells?: [number, n
       }
     }
 
-    // ---- walls and fill, one island at a time, nearest first ----
+    // walls and fill, one island at a time, nearest first
     const P = vaseHere ? 1 : Math.max(0, Math.round(s.perimeters))
     const centers: number[] = []
     let cpos = Wd.outer / 2 + (first ? ef : 0)
@@ -837,7 +837,7 @@ export function slice(tris: Float32Array, s0: SliceSettings, shells?: [number, n
     }
     if (s.seam === 'aligned') prevSeams = curSeams.length ? curSeams : prevSeams
 
-    // ---- supports ----
+    // supports
     if (plan) {
       const SG = plan.g, base = plan.base[i], ifc = plan.iface[i]
       const ws = Wd.support

@@ -62,7 +62,7 @@ vec3 lut3(vec3 c) {
 `
 
 export const EFFECT_TYPES: EffectType[] = [
-  // ---- blur and sharpen ----
+  // blur and sharpen
   {
     id: 'blur', name: 'Gaussian blur', group: 'Blur and sharpen', about: 'Soft blur', passes: 2,
     params: [num('radius', 'Blurriness', 0, 0.15, 0.01, 0.0005), { key: 'dims', label: 'Direction', kind: 'choice', default: 0, choices: ['Both', 'Across', 'Up and down'] }],
@@ -96,7 +96,7 @@ export const EFFECT_TYPES: EffectType[] = [
       return vec4(clamp(c.rgb + (c.rgb - b.rgb) * u_n[0], 0.0, 1.0), c.a);`,
   },
 
-  // ---- color ----
+  // color
   {
     id: 'grade', name: 'Color grade', group: 'Color', about: 'Exposure, contrast, lift, gamma, gain, temperature, tint and saturation, like a grading panel',
     params: [
@@ -179,7 +179,7 @@ export const EFFECT_TYPES: EffectType[] = [
     glsl: `vec4 s = src(uv); return vec4(floor(s.rgb * u_n[0]) / (u_n[0] - 1.0), s.a);`,
   },
 
-  // ---- distort ----
+  // distort
   {
     id: 'wave', name: 'Wave warp', group: 'Distort', about: 'Waves through the picture',
     params: [num('amp', 'Height', 0, 0.2, 0.02, 0.001), num('len', 'Wavelength', 0.01, 1, 0.15, 0.001), num('speed', 'Speed', -10, 10, 1), num('angle', 'Direction', -180, 180, 0, 1)],
@@ -229,7 +229,7 @@ export const EFFECT_TYPES: EffectType[] = [
     glsl: `return src(fract((uv - 0.5) * u_n[2] + 0.5 + vec2(u_n[0] + u_time * u_n[3], u_n[1])));`,
   },
 
-  // ---- stylize ----
+  // stylize
   {
     id: 'glow', name: 'Glow', group: 'Stylize', about: 'Bright parts bloom', passes: 3,
     params: [num('threshold', 'Threshold', 0, 1, 0.6), num('radius', 'Radius', 0, 0.2, 0.03, 0.0005), num('intensity', 'Intensity', 0, 5, 1.2), color('tint', 'Color', '#ffffff')],
@@ -279,7 +279,7 @@ export const EFFECT_TYPES: EffectType[] = [
     glsl: `vec4 s = src(uv); float l = 0.5 + 0.5 * sin((uv.y + u_time * u_n[2] * 0.05) * u_n[1] * 3.14159); return vec4(s.rgb * (1.0 - u_n[0] * l), s.a);`,
   },
 
-  // ---- perspective ----
+  // perspective
   {
     id: 'shadow', name: 'Drop shadow', group: 'Perspective', about: 'A soft shadow behind the layer',
     params: [num('dist', 'Distance', 0, 0.2, 0.02, 0.0005), num('angle', 'Direction', -180, 180, -45, 1), num('soft', 'Softness', 0, 0.1, 0.01, 0.0005), num('opacity', 'Opacity', 0, 1, 0.6), color('color', 'Color', '#000000')],
@@ -289,7 +289,7 @@ export const EFFECT_TYPES: EffectType[] = [
       return vec4((s.rgb * s.a + u_c[0] * sh * (1.0 - s.a)) / max(aOut, 1e-4), aOut);`,
   },
 
-  // ---- keying ----
+  // keying
   {
     id: 'diffkey', name: 'Background remover (clean plate)', group: 'Keying', about: 'Live rotoscoping without a green screen: capture the empty scene once, then everything that differs from it stays (a person, a hand, an object)', aux: 'plate',
     params: [num('tol', 'Threshold', 0, 1, 0.12), num('soft', 'Softness', 0, 0.5, 0.06), num('grow', 'Fill holes', 0, 1, 0.3), num('show', 'Show the matte', 0, 1, 0, 1)],

@@ -123,7 +123,7 @@ export function silhouette(tris: Float32Array, view: number[], proj: number[], g
   return contours(on, gw, gh).filter((cc) => cc.length >= 3).map((cc) => cc.map(([x, y]) => [x / gw, y / gh] as P2))
 }
 
-// ---- smarter selections ----
+// smarter selections
 
 const lum = (p: Photo, i: number) => 0.299 * p.px[i * 4] + 0.587 * p.px[i * 4 + 1] + 0.114 * p.px[i * 4 + 2]
 

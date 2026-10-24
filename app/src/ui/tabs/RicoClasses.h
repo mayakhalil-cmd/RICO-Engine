@@ -118,7 +118,7 @@ public:
     std::string GetPortName() const { return portName; }
 };
 
-// LED Strip Controller for WS2811 via Raspberry Pi Pico ===
+// LED Strip Controller for WS2811 via Raspberry Pi Pico
 class LEDStripController : public SerialController {
 private:
     int numLEDs;
@@ -194,7 +194,7 @@ public:
 
 extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
-// ===== GUITAR-TO-MIDI SYSTEM :-) =====
+// GUITAR-TO-MIDI SYSTEM :-)
 // Monophonic pitch detector using YIN algorithm
 class MonophonicDetector {
 private:
@@ -403,7 +403,7 @@ public:
 
         std::vector<std::pair<float, int>> candidates; // <magnitude, bin>
 
-        // Peak detection with local maxima ===
+        // Peak detection with local maxima
         for (int i = binStart + 2; i < binEnd - 2; i++) {
             if (fftMagnitude[i] > fftMagnitude[i - 1] &&
                 fftMagnitude[i] > fftMagnitude[i + 1] &&

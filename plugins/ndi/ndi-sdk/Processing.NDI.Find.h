@@ -6,7 +6,6 @@
 // part of this SDK is acknowledgment that you agree to the SDK license terms. The full NDI SDK may be
 // downloaded at http://ndi.video/
 //
-//***********************************************************************************************************
 //
 // Copyright (C) 2023-2025 Vizrt NDI AB. All rights reserved.
 //
@@ -25,7 +24,6 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 // THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
-//***********************************************************************************************************
 
 // Structures and type definitions required by NDI finding.
 // The reference to an instance of the finder.
@@ -58,7 +56,6 @@ typedef struct NDIlib_find_create_t {
 #endif // NDILIB_CPP_DEFAULT_CONSTRUCTORS
 } NDIlib_find_create_t;
 
-//***********************************************************************************************************
 // Create a new finder instance. This will return NULL if it fails.
 PROCESSINGNDILIB_API
 NDIlib_find_instance_t NDIlib_find_create_v2(const NDIlib_find_create_t* p_create_settings NDILIB_CPP_DEFAULT_VALUE(NULL));

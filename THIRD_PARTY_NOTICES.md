@@ -1,6 +1,6 @@
 # Third party notices
 
-RICO is MIT licensed. It is built with the open source projects below. Their
+RICO is under the Business Source License 1.1 (see LICENSE). It is built with the open source projects below. Their
 licenses are kept next to their code in `third_party/`, or in the package
 they come from.
 

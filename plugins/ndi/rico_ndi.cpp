@@ -71,7 +71,7 @@ bool loadRuntime() {
     return true;
 }
 
-// ---- transport functions -------------------------------------------------
+// transport functions
 
 int isAvailable() {
     if (g_ndi) return 1;

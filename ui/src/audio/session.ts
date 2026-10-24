@@ -10,7 +10,7 @@ import { SYNTH_PRESETS, midiHz, voice, type Synth } from './synth'
 // files. Instrument tracks hold notes played by a synth from the generator,
 // so you can play live (computer keys or MIDI) and record it.
 
-// ---- the data ----------------------------------------------------------------------------
+// the data
 
 export type FxType = 'eq' | 'comp' | 'filter' | 'delay' | 'reverb' | 'drive' | 'chorus'
 export interface TrackFx { id: string; type: FxType; on: boolean; p: Record<string, number> }
@@ -100,7 +100,7 @@ let session: Session = (() => {
   return fresh()
 })()
 
-// ---- the store, with undo ----
+// the store, with undo
 
 let version = 0
 const listeners = new Set<() => void>()
@@ -190,7 +190,7 @@ export const beat = () => 60 / session.bpm
 export const snapTime = (t: number, on = session.snap) => (on ? Math.round(t / (beat() / 4)) * (beat() / 4) : t)
 export const sessionEnd = () => Math.max(4, ...session.clips.map((c) => c.start + c.length))
 
-// ---- sounds (decoded audio) ----
+// sounds (decoded audio)
 
 const buffers = new Map<string, AudioBuffer>()
 export const bufferOf = (id: string) => buffers.get(id)
@@ -252,7 +252,7 @@ export async function clipBuffer(c: AudioClip): Promise<AudioBuffer | null> {
 }
 export function forgetUnused() { void deleteSounds(new Set(session.clips.filter((x): x is AudioClip => x.kind === 'audio').map((x) => x.source))) }
 
-// ---- the sound graph (works the same live and when mixing down) ----
+// the sound graph (works the same live and when mixing down)
 
 interface FxNode { input: AudioNode; output: AudioNode; set: (p: Record<string, number>) => void; stop: () => void }
 const irCache = new Map<string, AudioBuffer>()
@@ -433,7 +433,7 @@ export function meterOf(track: string | 'master'): number {
   return p
 }
 
-// ---- playing ----
+// playing
 
 interface Pass { ctxAt: number; from: number; to: number; outs: GainNode[]; srcs: AudioScheduledSourceNode[] }
 let play: { passes: Pass[]; timer: number; restart: number } | null = null
@@ -555,7 +555,7 @@ function restartSoon() {
   play.restart = window.setTimeout(() => { if (play && !rec) void startPlay(position()) }, 120)
 }
 
-// ---- live playing (computer keys and MIDI) ----
+// live playing (computer keys and MIDI)
 
 const held = new Map<string, { gain: GainNode; t: number; n: number; v: number; track: string }>()
 let recNotes: { track: string; t: number; d: number; n: number; v: number }[] = []
@@ -621,7 +621,7 @@ export function listenMidi() {
   }
 }
 
-// ---- recording ----
+// recording
 
 const REC_CODE = `
 class Rec extends AudioWorkletProcessor {
@@ -695,7 +695,7 @@ export async function stopRecord() {
   else emit()
 }
 
-// ---- mixing down ----
+// mixing down
 
 export async function mixdown(range?: [number, number]): Promise<AudioBuffer> {
   await loadBuffers()

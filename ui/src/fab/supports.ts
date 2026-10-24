@@ -111,7 +111,7 @@ export function planSupports(coarse: Uint8Array[], g: Grid, tops: number[], s: S
   const ifBot = Math.max(0, s.interfaceBottom ?? 0)
   const minCells = (s.supportMinArea ?? 0) / (c * c)
 
-  // ---- 1. overhangs ----
+  // 1. overhangs
   // From the faces of the part: every face that looks down more steeply than
   // the threshold marks the cells under it, at its own height. This finds
   // gentle overhangs that a coarse look from layer to layer would miss.
@@ -188,7 +188,7 @@ export function planSupports(coarse: Uint8Array[], g: Grid, tops: number[], s: S
     if (any) hangs[i] = hang
   }
 
-  // ---- 2. columns down (for trees: only the roof) ----
+  // 2. columns down (for trees: only the roof)
   const carry = new Uint8Array(NS)
   const age = new Uint16Array(NS)
   const spawn: (Uint8Array | null)[] = new Array(n).fill(null)
@@ -230,7 +230,7 @@ export function planSupports(coarse: Uint8Array[], g: Grid, tops: number[], s: S
   }
   if (!tree) return plan
 
-  // ---- 3. branches ----
+  // 3. branches
   interface Node { x: number; y: number; r: number }
   const tipR = Math.max(0.2, (s.treeTip ?? 0.8) / 2)
   const maxR = Math.max(tipR, (s.treeMax ?? 8) / 2)

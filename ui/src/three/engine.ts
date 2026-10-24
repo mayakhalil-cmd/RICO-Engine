@@ -193,7 +193,7 @@ let gizmoLocked = false
 export function setGizmoLock(on: boolean) { gizmoLocked = on; syncExtras() }
 export const renderSize = new THREE.Vector2(1280, 720)
 
-// ---- building things ------------------------------------------------------------
+// building things
 
 function geometry(kind: Obj3D['kind']): THREE.BufferGeometry {
   switch (kind) {
@@ -213,7 +213,7 @@ function geometry(kind: Obj3D['kind']): THREE.BufferGeometry {
   }
 }
 
-// ---- shapes made from math, code or nodes ----
+// shapes made from math, code or nodes
 
 const usesTime = (s?: string) => /\bt\b/.test(s ?? '')
 let lastShaderError = ''
@@ -260,7 +260,7 @@ export function shapeError(id: string): string {
   return String(m?.userData.err ?? '')
 }
 
-// ---- pictures on objects ----
+// pictures on objects
 
 function pictureTexture(mesh: THREE.Mesh, o: Obj3D, t: number): THREE.Texture | null {
   const pic = usePicture(o.picture || 'Create')
@@ -624,7 +624,7 @@ function dispose(obj: THREE.Object3D) {
   })
 }
 
-// ---- every frame ---------------------------------------------------------------
+// every frame
 
 const DEG = Math.PI / 180
 const smooth = new Map<string, number>()
@@ -826,7 +826,7 @@ function playFixture(l: THREE.SpotLight, o: Obj3D, now: number) {
   if (head) head.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir.clone().negate())
 }
 
-// ---- size and drawing -------------------------------------------------------------
+// size and drawing
 
 let width = 1280, height = 720
 let viewers = 0
@@ -953,7 +953,7 @@ function loop(now: number) {
   renderProjectors()
 }
 
-// ---- projection mapping: the scene seen from calibrated projectors ----------------
+// projection mapping: the scene seen from calibrated projectors
 // A second renderer draws the same scene from each projector's real position
 // and lens, into a picture an output surface can show ("3D from Output 1").
 // Give objects the Picture material (Create, a node picture) to map content
@@ -1046,7 +1046,7 @@ export function addViewer3d(on: boolean) {
   viewers = Math.max(0, viewers + (on ? 1 : -1))
 }
 
-// ---- tools --------------------------------------------------------------------------
+// tools
 
 // Which way the handles point: along the world, or along the object itself.
 export type Space = 'world' | 'local'
@@ -1118,7 +1118,7 @@ function symbioteNeighbours(w: World3D, self: string): [string, THREE.Object3D][
   return out
 }
 
-// ---- the pivot: where an object turns, sizes and deforms from ----
+// the pivot: where an object turns, sizes and deforms from
 // The shape is moved so the pivot is its own 0, and the object's position is
 // where the pivot is. Shapes that are rebuilt (text, live shapes) get moved again.
 function applyPivot(o: Obj3D, obj: THREE.Object3D) {
@@ -1309,7 +1309,7 @@ export async function exportGlb(): Promise<Blob> {
   }
 }
 
-// ---- keep three.js in step with the scene data ------------------------------------
+// keep three.js in step with the scene data
 
 // the desk aims real fixtures at where 3D things are right now
 setWhere((id) => { const e = objects.get(id); if (!e) return getWorld().objects.find((o) => o.id === id)?.position ?? null; const v = e.obj.getWorldPosition(new THREE.Vector3()); return [v.x, v.y, v.z] })

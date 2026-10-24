@@ -37,7 +37,7 @@ const sup = (s: PrintChoice) => (s.support ?? 'none') !== 'none'
 const tree = (s: PrintChoice) => sup(s) && s.supportType === 'tree'
 
 export const DEFS: Def[] = [
-  // ---- quality ----
+  // quality
   { key: 'layer', tab: 'quality', group: 'Layer height', label: 'Layer height', type: 'num', min: 0.04, max: 1, ...mm },
   { key: 'firstLayer', tab: 'quality', group: 'Layer height', label: 'First layer height', hint: 'Thicker sticks better', type: 'num', min: 0.08, max: 1, ...mm },
   { key: 'lineWidth', tab: 'quality', group: 'Line width', label: 'Default', hint: 'Usually the nozzle size, a bit more', type: 'num', min: 0.1, max: 2, ...mm },
@@ -62,7 +62,7 @@ export const DEFS: Def[] = [
   { key: 'fuzzyThick', tab: 'quality', group: 'Fuzzy skin', label: 'Thickness', type: 'num', min: 0.05, max: 2, ...mm, adv: true, show: (s) => (s.fuzzy ?? 'none') !== 'none' },
   { key: 'fuzzyDist', tab: 'quality', group: 'Fuzzy skin', label: 'Point distance', type: 'num', min: 0.1, max: 5, ...mm, adv: true, show: (s) => (s.fuzzy ?? 'none') !== 'none' },
 
-  // ---- strength ----
+  // strength
   { key: 'perimeters', tab: 'strength', group: 'Walls', label: 'Wall loops', type: 'num', min: 0, max: 20, step: 0.05, digits: 0 },
   { key: 'topLayers', tab: 'strength', group: 'Top and bottom shells', label: 'Top shell layers', type: 'num', min: 0, max: 30, step: 0.05, digits: 0, fallback: (s) => s.solidLayers },
   { key: 'bottomLayers', tab: 'strength', group: 'Top and bottom shells', label: 'Bottom shell layers', type: 'num', min: 0, max: 30, step: 0.05, digits: 0, fallback: (s) => s.solidLayers },
@@ -73,7 +73,7 @@ export const DEFS: Def[] = [
   { key: 'infillAngle', tab: 'strength', group: 'Sparse infill', label: 'Infill direction', type: 'num', min: 0, max: 180, step: 1, digits: 0, suffix: ' deg', adv: true },
   { key: 'infillOverlap', tab: 'strength', group: 'Sparse infill', label: 'Infill and wall overlap', hint: 'How far infill reaches into the walls, so they hold together', type: 'num', min: 0, max: 0.5, ...pc, adv: true },
 
-  // ---- speed ----
+  // speed
   { key: 'firstSpeed', tab: 'speed', group: 'First layer', label: 'First layer', type: 'num', ...mms },
   { key: 'firstInfillSpeed', tab: 'speed', group: 'First layer', label: 'First layer infill', type: 'num', ...mms, fallback: (s) => s.firstSpeed, adv: true },
   { key: 'slowLayers', tab: 'speed', group: 'First layer', label: 'Number of slow layers', hint: 'Layers that speed up bit by bit from the first layer speed', type: 'num', min: 0, max: 20, step: 0.05, digits: 0, adv: true },
@@ -95,7 +95,7 @@ export const DEFS: Def[] = [
   { key: 'accelFirst', tab: 'speed', group: 'Acceleration', label: 'First layer', type: 'num', ...acc, adv: true },
   { key: 'cornerSpeed', tab: 'speed', group: 'Acceleration', label: 'Square corner velocity / jerk', hint: '0: leave the printer as it is', type: 'num', min: 0, max: 50, step: 0.5, digits: 1, suffix: ' mm/s', adv: true },
 
-  // ---- support ----
+  // support
   { key: 'support', tab: 'support', group: 'Support', label: 'Enable support', type: 'choice', choices: [['none', 'Off'], ['bed', 'On build plate only'], ['everywhere', 'Everywhere']] },
   { key: 'supportType', tab: 'support', group: 'Support', label: 'Type', hint: 'Tree: branches that go around the part, less plastic and easier to take off', type: 'choice', choices: [['normal', 'Normal'], ['tree', 'Tree']], show: sup },
   { key: 'supportManual', tab: 'support', group: 'Support', label: 'Only in my support boxes', hint: 'Manual: support only where you put a box (below)', type: 'bool', show: sup },
@@ -118,7 +118,7 @@ export const DEFS: Def[] = [
   { key: 'treeMax', tab: 'support', group: 'Tree', label: 'Branch diameter', hint: 'The thickest a trunk gets', type: 'num', min: 1, max: 30, step: 0.1, digits: 1, suffix: ' mm', show: tree },
   { key: 'treeGrow', tab: 'support', group: 'Tree', label: 'Branch diameter angle', hint: 'How fast branches get thicker going down', type: 'num', min: 0, max: 15, step: 0.1, digits: 1, suffix: ' deg', show: tree, adv: true },
 
-  // ---- others ----
+  // others
   { key: 'prime', tab: 'others', group: 'Purge line', label: 'Purge line before the print', hint: 'A thick line at the edge of the bed, to get the plastic flowing', type: 'bool' },
   { key: 'primeWhere', tab: 'others', group: 'Purge line', label: 'Where', type: 'choice', choices: [['left', 'Left edge'], ['front', 'Front edge']], show: (s) => Boolean(s.prime) },
   { key: 'primeLength', tab: 'others', group: 'Purge line', label: 'Length', type: 'num', min: 20, max: 300, step: 1, digits: 0, suffix: ' mm', show: (s) => Boolean(s.prime) },
@@ -136,7 +136,7 @@ export const DEFS: Def[] = [
   { key: 'vase', tab: 'others', group: 'Special mode', label: 'Spiral vase', hint: 'One wall going up in a spiral, no top and no infill', type: 'bool' },
   { key: 'pauseHeights', tab: 'others', group: 'Special mode', label: 'Filament change at heights', hint: 'mm, with commas, like 2.4, 5. The printer stops so you can change the color', type: 'text' },
 
-  // ---- filament ----
+  // filament
   { key: 'firstNozzleTemp', tab: 'filament', group: 'Temperature', label: 'Nozzle, first layer', type: 'num', min: 150, max: 450, step: 1, digits: 0, suffix: ' C', fallback: (s) => s.nozzleTemp },
   { key: 'nozzleTemp', tab: 'filament', group: 'Temperature', label: 'Nozzle, other layers', type: 'num', min: 150, max: 450, step: 1, digits: 0, suffix: ' C' },
   { key: 'firstBedTemp', tab: 'filament', group: 'Temperature', label: 'Bed, first layer', type: 'num', min: 0, max: 150, step: 1, digits: 0, suffix: ' C', fallback: (s) => s.bedTemp },
@@ -155,7 +155,7 @@ export const DEFS: Def[] = [
   { key: 'minLayerTime', tab: 'filament', group: 'Cooling', label: 'Slow down when a layer takes less than', hint: 'Small layers get time to cool. 0: off', type: 'num', min: 0, max: 120, step: 0.5, digits: 0, suffix: ' s' },
   { key: 'minSpeed', tab: 'filament', group: 'Cooling', label: 'Min print speed', type: 'num', ...mms, show: (s) => (s.minLayerTime ?? 0) > 0 },
 
-  // ---- printer ----
+  // printer
   { key: 'flavor', tab: 'printer', group: 'Firmware', label: 'G-code flavor', hint: 'Changes how pauses, pins and pressure advance are written', type: 'choice', choices: [['marlin', 'Marlin'], ['klipper', 'Klipper'], ['reprap', 'RepRapFirmware']], printer: true, fallback: (_s, p) => (p.link === 'klipper' ? 'klipper' : 'marlin') },
   { key: 'zOffset', tab: 'printer', group: 'Firmware', label: 'Z offset', type: 'num', min: -2, max: 2, step: 0.005, digits: 3, suffix: ' mm', printer: true, fallback: () => 0 },
   { key: 'maxFlow', tab: 'printer', group: 'Firmware', label: 'Hot end flow', hint: 'How much plastic the hot end can melt each second', type: 'num', min: 2, max: 80, step: 0.5, digits: 1, suffix: ' mm3/s', printer: true, fallback: () => 12 },

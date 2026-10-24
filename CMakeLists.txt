@@ -26,7 +26,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${RICO_OUT})
 find_package(nlohmann_json CONFIG REQUIRED)
 find_package(PahoMqttCpp CONFIG REQUIRED)
 
-# ---- third party code that lives in this repository ---------------------
+# third party code that lives in this repository
 
 add_library(rico_thirdparty STATIC
     third_party/imgui/imgui.cpp
@@ -72,7 +72,7 @@ if(MSVC)
     target_compile_options(rico_thirdparty PRIVATE /W0 /utf-8)
 endif()
 
-# ---- RICO ----------------------------------------------------------------
+# RICO
 
 file(GLOB_RECURSE RICO_SOURCES CONFIGURE_DEPENDS app/src/*.cpp app/src/*.h)
 
@@ -119,7 +119,7 @@ add_custom_command(TARGET RICO POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/THIRD_PARTY_NOTICES.md ${RICO_OUT}/THIRD_PARTY_NOTICES.md
 )
 
-# ---- the interface -------------------------------------------------------
+# the interface
 
 if(RICO_BUILD_UI)
     find_program(NPM npm)
@@ -139,7 +139,7 @@ if(RICO_BUILD_UI)
     endif()
 endif()
 
-# ---- plugins -------------------------------------------------------------
+# plugins
 
 if(RICO_BUILD_NDI_PLUGIN)
     add_subdirectory(plugins/ndi)

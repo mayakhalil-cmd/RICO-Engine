@@ -107,7 +107,7 @@ export const SLICE_DEFAULTS: SliceSettings = {
   treeAngle: 40, treeBranchDist: 3, treeTip: 0.8, treeMax: 8, treeGrow: 5,
 }
 
-// ---- what the G-code is written with ----
+// what the G-code is written with
 
 export type Flavor = 'marlin' | 'klipper' | 'reprap'
 

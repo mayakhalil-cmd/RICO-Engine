@@ -265,7 +265,7 @@ export class Renderer {
     this.timer = gl.getExtension('EXT_disjoint_timer_query_webgl2') as typeof this.timer
   }
 
-  // ---- timing ----------------------------------------------------------------
+  // timing
 
   private begin(id: string, name: string, measuring: boolean) {
     if (!measuring || !this.timer) return null
@@ -310,7 +310,7 @@ export class Renderer {
     this.stats = { measured, layers, finishMs, readMs: this.readMs, width: this.width, height: this.height, textureBytes: targets * this.width * this.height * 4 }
   }
 
-  // ---- setup ---------------------------------------------------------------
+  // setup
 
   private broken = new Map<string, string>()
   private compile(key: string, frag: string): WebGLProgram {
@@ -400,7 +400,7 @@ export class Renderer {
     this.readBuffer = new Uint8Array(w * h * 4)
   }
 
-  // ---- layer sources (text, images, camera) --------------------------------
+  // layer sources (text, images, camera)
 
   private source(layer: Layer, time = 0): Source | null {
     const type = layerType(layer.type)
@@ -605,7 +605,7 @@ export class Renderer {
     }
   }
 
-  // ---- values --------------------------------------------------------------
+  // values
 
   // The value a setting has right now: its own value, or the signal it is
   // linked to, mapped into the chosen range and smoothed.
@@ -638,7 +638,7 @@ export class Renderer {
     return out.slice(0, 16)
   }
 
-  // ---- transforms, effects, placing ------------------------------------------
+  // transforms, effects, placing
 
   private v(layer: Layer, key: string, def: number) {
     return this.value(layer.id, key, Number(layer.values[key] ?? def), layer.bindings[key])
@@ -901,7 +901,7 @@ void main() { vec2 p = (v_uv - 0.5) * vec2(u_res.x / u_res.y, 1.0); o = layer(v_
     return true
   }
 
-  // ---- drawing -------------------------------------------------------------
+  // drawing
 
   private draw(fb: WebGLFramebuffer | null) {
     const gl = this.gl

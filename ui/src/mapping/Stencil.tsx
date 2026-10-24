@@ -27,7 +27,7 @@ function Mm({ value, set, min, max, step = 0.1, digits = 1, suffix = ' mm' }: { 
   return <Scrub value={value} step={step} digits={digits} min={min} max={max} suffix={suffix} onChange={set} />
 }
 
-// ---- the plate from the front, where you move the shapes ----
+// the plate from the front, where you move the shapes
 export function PlateView({ p, o, move, colorOf, offsets }: { p: GoboPlan; o: GoboOptions; move?: (id: string, d: [number, number]) => void; colorOf?: (id: string, i: number) => string; offsets?: Record<string, [number, number]> }) {
   const svgRef = useRef<SVGSVGElement | null>(null)
   const drag = useRef<{ id: string; x: number; y: number; base: [number, number] } | null>(null)

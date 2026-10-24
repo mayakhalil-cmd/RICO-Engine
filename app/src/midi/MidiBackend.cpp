@@ -116,7 +116,7 @@ void ProcessMidiMessage(const std::vector<unsigned char>& message, int deviceInd
     MidiCallback(0.0, &msg, deviceIndex < 0 ? &s_fromVirtualPort : nullptr);
 }
 
-// ---- Bridge ports --------------------------------------------------------
+// Bridge ports
 // Mirrors everything RICO receives to another MIDI port (OUT) and feeds
 // another port into RICO (IN). Useful with DJ software and DAWs.
 
@@ -203,7 +203,7 @@ void AutoConnectMIDI() {
     }
 }
 
-// ---- Virtual ports -------------------------------------------------------
+// Virtual ports
 
 bool CreateNamedVirtualPort(const char* portName) {
     if (!portName || !*portName) return false;
@@ -343,7 +343,7 @@ void MidiCallback(double timeStamp, std::vector<unsigned char>* message, void* u
     logMsg.type = typeStr;
     logMsg.description = typeStr + " Ch:" + std::to_string(channel) + " " + std::to_string(data1) + ":" + std::to_string(data2);
 
-    // Handle learning mode or auto-create mappings ====
+    // Handle learning mode or auto-create mappings
     if (controlType >= 0) {
         std::string key = std::to_string(controlType) + ":" + std::to_string(channel) + ":" + std::to_string(data1);
 

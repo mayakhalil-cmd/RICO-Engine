@@ -8,7 +8,7 @@ import { IN, OUT, clamp01, changed, n, rising, type NodeType } from './kit'
 // The first family: numbers that move. Sources make values, the middle shapes them, outputs send them.
 
 export const BASIC_TYPES: NodeType[] = [
-  // ---- sources ----
+  // sources
   {
     type: 'signal', name: 'Signal', group: 'Sources', about: 'Anything RICO hears: a knob, an OSC address, an audio band', inputs: [], outputs: OUT,
     params: [{ key: 'signal', label: 'From', kind: 'signal', default: '' }],
@@ -72,7 +72,7 @@ export const BASIC_TYPES: NodeType[] = [
     run: (c) => ({ out: c.t }),
   },
 
-  // ---- shape ----
+  // shape
   {
     type: 'map', name: 'Range', group: 'Shape', about: 'Turns one range into another, like 0..1 into 30..110',
     inputs: IN, outputs: OUT,
@@ -153,7 +153,7 @@ export const BASIC_TYPES: NodeType[] = [
     },
   },
 
-  // ---- logic ----
+  // logic
   {
     type: 'gate', name: 'Threshold', group: 'Logic', about: '1 when the value is over the line, 0 under it', inputs: IN, outputs: OUT,
     params: [n('level', 'Line', 0.5, 0, 1, 0.001)],
@@ -216,7 +216,7 @@ export const BASIC_TYPES: NodeType[] = [
     },
   },
 
-  // ---- outputs ----
+  // outputs
   {
     type: 'osc-out', name: 'OSC out', group: 'Outputs', about: 'Sends to an app that listens for OSC', inputs: IN, outputs: [],
     params: [{ key: 'host', label: 'Computer', kind: 'text', default: '127.0.0.1' }, n('port', 'Port', 8000, 1, 65535, 1), { key: 'address', label: 'Address', kind: 'text', default: '/rico/node' }],

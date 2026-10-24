@@ -21,7 +21,7 @@ const OSC_PORT = 9000
 const UDP_PORT = 7400
 const DMX_START = 1
 
-// ---- the tracks ----
+// the tracks
 
 const tracks = [
   { name: 'Kick',  steps: 16, hits: 4, rotate: 0, note: 36, ch: 10, color: '#3bff03', muted: false },
@@ -43,7 +43,7 @@ function euclid(steps, hits, rotate) {
 const rebuild = () => tracks.forEach((t) => { t.pattern = euclid(t.steps, t.hits, t.rotate) })
 rebuild()
 
-// ---- controls ----
+// controls
 
 ui.title('Euclid engine')
 const bpm = ui.slider('Tempo (BPM)', { min: 40, max: 220, value: 124, step: 1 })
@@ -86,7 +86,7 @@ const view = ui.canvas(300, (p) => {
 const stats = ui.label('Starting...')
 const pic = rico.picture('Euclid', 960, 540)
 
-// ---- sending ----
+// sending
 
 let sentCount = 0, sentLast = 0, rate = 0
 let selfTest = null
@@ -117,7 +117,7 @@ function allOff() {
   for (let c = 0; c < 16; c++) { dmx[c] = 0; dmxSent[c] = 0; rico.dmx.set(DMX_START + c, 0) }
 }
 
-// ---- remote control ----
+// remote control
 
 rico.udp.listen(UDP_PORT, (text, bytes, from) => {
   const [cmd, a, b] = text.trim().split(/\s+/)
@@ -139,7 +139,7 @@ rico.midi.on((m) => {
   }
 })
 
-// ---- the clock ----
+// the clock
 // Checked every 5 ms against the real time, so the timing does not drift.
 
 let step = 0
@@ -162,7 +162,7 @@ rico.every(5, () => {
   step++
 })
 
-// ---- every frame: fades, signals, DMX, drawing ----
+// every frame: fades, signals, DMX, drawing
 
 rico.frame((dt, time) => {
   const t0 = performance.now()

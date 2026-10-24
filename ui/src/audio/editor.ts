@@ -55,7 +55,7 @@ export function setClip(buffer: AudioBuffer, name: string, replace = true) {
   insertBuffer(buffer, `Add ${name}`)
 }
 
-// ---- buffers ----
+// buffers
 
 async function makeBuffer(channels: Float32Array[], rate: number): Promise<AudioBuffer> {
   const c = await audioContext()
@@ -83,7 +83,7 @@ export async function newSilence(seconds = 4) {
   commit({ name: 'New sound', buffer: c.createBuffer(2, Math.round(seconds * c.sampleRate), c.sampleRate) })
 }
 
-// ---- cut, copy, paste ----
+// cut, copy, paste
 
 export async function copySel() {
   if (!clip) return
@@ -133,7 +133,7 @@ export async function crop() {
   emit()
 }
 
-// ---- sample processing on the selection (or everything) ----
+// sample processing on the selection (or everything)
 
 async function processSamples(fn: (d: Float32Array, ch: number, rate: number) => Float32Array | void) {
   if (!clip) return
@@ -221,7 +221,7 @@ export async function speed(ratio: number) {
   if (sel[1] > sel[0]) { sel = [sel[0], sel[0] + (sel[1] - sel[0]) / ratio]; emit() }
 }
 
-// ---- effects that use the audio engine (rendered offline, exactly) ----
+// effects that use the audio engine (rendered offline, exactly)
 
 export type FxKind = 'lowcut' | 'highcut' | 'bell' | 'lowshelf' | 'highshelf' | 'compress' | 'reverb' | 'echo' | 'drive'
 export interface FxParams { freq?: number; q?: number; db?: number; mix?: number; time?: number; feedback?: number; amount?: number; threshold?: number; ratio?: number; size?: number }
@@ -313,7 +313,7 @@ export async function effect(kind: FxKind, p: FxParams) {
   commit({ name: clip.name, buffer: await makeBuffer(out, b.sampleRate) })
 }
 
-// ---- playback ----
+// playback
 
 export async function play(loop = false) {
   stopPlay()
@@ -346,7 +346,7 @@ export function playhead(): number | null {
   return playing.from + t
 }
 
-// ---- WAV ----
+// WAV
 
 export function wav(b: AudioBuffer, bits: 16 | 24 = 24, from = 0, to = b.length): Blob {
   const ch = b.numberOfChannels, n = to - from, bytes = bits / 8
@@ -376,7 +376,7 @@ export function exportRange(): [number, number] {
   return range(clip.buffer)
 }
 
-// ---- recording from a microphone ----
+// recording from a microphone
 
 let recorder: MediaRecorder | null = null
 export async function record(on: boolean) {

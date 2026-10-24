@@ -18,7 +18,7 @@ import type { Obj3D } from './world'
 export const MORPH_SHAPES: [string, string][] = [['sphere', 'A ball'], ['cube', 'A box'], ['torus', 'A ring'], ['cylinder', 'A can']]
 const INF = 1e20
 
-// ---- distances on a grid ----
+// distances on a grid
 
 function pass1d(f: Float64Array, d: Float64Array, v: Int32Array, z: Float64Array, n: number) {
   let k = 0
@@ -132,7 +132,7 @@ function shapeSdf(kind: string, R: number, min: THREE.Vector3, cell: number, c: 
   return f
 }
 
-// ---- smooth noise, cheap enough to run for every cell every frame ----
+// smooth noise, cheap enough to run for every cell every frame
 
 const LAT = 17
 const lattice = (() => { const a = new Float32Array(LAT * LAT * LAT); let s = 1234567; for (let i = 0; i < a.length; i++) { s = (s * 16807) % 2147483647; a[i] = s / 2147483647 } return a })()
@@ -186,7 +186,7 @@ export function surfaceOf(mc: MarchingCubes, n: number, min: THREE.Vector3, cell
   g.boundingSphere = bb.isEmpty() ? new THREE.Sphere() : bb.getBoundingSphere(new THREE.Sphere())
 }
 
-// ---- the morph on an object ----
+// the morph on an object
 
 interface State {
   R: number; min: THREE.Vector3; cell: number

@@ -44,11 +44,11 @@ export const getPlay = () => play
 
 export const timelineOf = (s: Scene): Timeline => s.timeline ?? emptyTimeline()
 
-// ---- values ------------------------------------------------------------------
+// values
 
 export const trackFor = (s: Scene, target: string) => timelineOf(s).tracks.find((t) => t.target === target)
 
-// ---- editing (all undoable) --------------------------------------------------
+// editing (all undoable)
 
 function changeTimeline(label: string, fn: (t: Timeline) => Timeline, key?: string) {
   changeScene(label, (s) => ({ ...s, timeline: fn(timelineOf(s)) }), key)
@@ -138,7 +138,7 @@ export function setEase(target: string, t: number, e: Ease) {
   changeTimeline('Change easing', (tl) => withKeys(tl, target, (keys) => keys.map((k) => (Math.abs(k.t - t) < 1e-6 ? { ...k, ease: e } : k))))
 }
 
-// ---- layers on the timeline ----
+// layers on the timeline
 
 export function updateLayer(id: string, part: { solo?: boolean; locked?: boolean; visible?: boolean; blend?: number }, label: string) {
   changeScene(label, (s) => ({ ...s, layers: s.layers.map((l) => (l.id === id ? { ...l, ...part } : l)) }))
@@ -156,7 +156,7 @@ export function moveLayer(id: string, to: number) {
   })
 }
 
-// ---- output tracks: OSC, MIDI, DMX and signals --------------------------------
+// output tracks: OSC, MIDI, DMX and signals
 
 const rid = () => Math.random().toString(36).slice(2, 9)
 export const OUT_LABEL: Record<OutKind, string> = { osc: 'OSC', 'midi-cc': 'MIDI CC', dmx: 'DMX', signal: 'Signal' }
@@ -191,7 +191,7 @@ function sendOut(o: OutTrack, v: number) {
   else putSignal(`tl:${o.name}`, `Timeline: ${o.name}`, c)
 }
 
-// ---- cues -------------------------------------------------------------------------
+// cues
 
 export const CUE_LABEL: Record<CueKind, string> = { osc: 'Send OSC', 'midi-note': 'Play a MIDI note', command: 'Run a command', signal: 'Hit a signal' }
 
@@ -221,7 +221,7 @@ export function fireCue(c: Cue) {
   }
 }
 
-// ---- work area ----
+// work area
 
 export function setWorkArea(inPoint: number | undefined, outPoint: number | undefined) {
   changeTimeline('Work area', (tl) => ({ ...tl, inPoint, outPoint }), 'work')
@@ -253,7 +253,7 @@ export function captureValue(target: string, v: number): boolean {
   return false
 }
 
-// ---- transport -----------------------------------------------------------------
+// transport
 
 export function playPause() {
   if (play.playing) flushRecording()
@@ -282,7 +282,7 @@ export function arm(on: boolean) {
   setPlay({ armed: on })
 }
 
-// ---- recording linked settings -----------------------------------------------
+// recording linked settings
 // While Rec is on and the timeline plays, every setting linked to a knob,
 // an OSC address or the audio is written down; the keys land in one undo step.
 
@@ -397,7 +397,7 @@ export function formatTime(t: number, fps: number) {
   return `${m}:${String(s).padStart(2, '0')}:${String(f).padStart(2, '0')}`
 }
 
-// ---- how time is shown: timecode, frames or seconds ----
+// how time is shown: timecode, frames or seconds
 
 export type TimeUnits = 'tc' | 'frames' | 'sec'
 const pad2 = (n: number) => String(n).padStart(2, '0')

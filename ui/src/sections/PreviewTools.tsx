@@ -291,7 +291,7 @@ export default function PreviewTools() {
     newShape(shapeKind, w, h, (x0 + x1) / 2, (y0 + y1) / 2)
   }
 
-  // ---- drawing the handles ----
+  // drawing the handles
   let overlay: React.ReactNode = null
   if (layer && host.current && getRenderer()) {
     const m = matrixOf(layer, scene)

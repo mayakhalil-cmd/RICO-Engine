@@ -66,7 +66,7 @@ function runCode(c: EvalContext, code: string, outputs: Port[]): Record<string, 
   }
 }
 
-// ---- the library of saved nodes ----
+// the library of saved nodes
 
 export interface CustomDef {
   id: string
@@ -144,7 +144,7 @@ export function customType(id: string): NodeType | undefined {
   return t
 }
 
-// ---- containers ----
+// containers
 
 // Set by the store, which knows how to run a whole network.
 let runInside: ((graphId: string, inputs: Record<string, Value>, c: EvalContext) => Record<string, Value>) | null = null

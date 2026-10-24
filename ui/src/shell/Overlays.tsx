@@ -12,7 +12,7 @@ import { allWorkspaces, newWorkspace } from './workspaces'
 import { STARTER_PROJECTS } from './projects'
 import { toast } from '../components/Toasts'
 
-// ---- command search -----------------------------------------------------------
+// command search
 
 function score(label: string, q: string): number {
   const l = label.toLowerCase()
@@ -83,7 +83,7 @@ function Palette() {
   )
 }
 
-// ---- dialogs ----------------------------------------------------------------------
+// dialogs
 
 function Dialog({ title, children, wide, onClose = () => openOverlay(null), foot }: {
   title: string
@@ -189,7 +189,7 @@ function NewWorkspace() {
   )
 }
 
-// ---- shortcuts ----------------------------------------------------------------------
+// shortcuts
 
 function ShortcutRow({ c }: { c: Command }) {
   const list = triggersFor(c.id)
@@ -316,8 +316,8 @@ export default function Overlays() {
       {overlay === 'starters' && <Starters />}
       {overlay === 'about' && (
         <Dialog title="RICO">
-          <p>Real-time Integration Control Operations. A free, open source hub for MIDI, OSC, DMX, MQTT, Spout and network video.</p>
-          <p className="muted small">Made by Maya Khalil. MIT license. See THIRD_PARTY_NOTICES.md for the projects RICO is built on.</p>
+          <p>Real-time Integration Control Operations. A free hub for MIDI, OSC, DMX, MQTT, Spout and network video.</p>
+          <p className="muted small">Made by Maya Khalil. Business Source License 1.1, Apache 2.0 from 2030. See THIRD_PARTY_NOTICES.md for the projects RICO is built on.</p>
         </Dialog>
       )}
       <QuestionDialog />

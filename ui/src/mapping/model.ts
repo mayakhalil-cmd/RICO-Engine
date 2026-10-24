@@ -108,7 +108,7 @@ const fresh = (id: string): OutputMap => ({
   softLeft: 0, softRight: 0, softTop: 0, softBottom: 0, softGamma: 2.2, showPoints: false, res: [1920, 1080], pairs: [], solved: null,
 })
 
-// ---- storage and sync ----
+// storage and sync
 
 const key = (id: string) => `rico.mapping.${id}`
 const channel = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel('rico-mapping') : null
@@ -208,7 +208,7 @@ export function outline(s: Surface): P2[] {
   return out
 }
 
-// ---- the layer stack ----
+// the layer stack
 
 export interface StackItem { kind: 'surface' | 'mask'; id: string }
 
@@ -268,7 +268,7 @@ export function surfacesInOrder(m: OutputMap): Surface[] {
   return stackOf(m).filter((x) => x.kind === 'surface').map((x) => m.surfaces.find((s) => s.id === x.id)!)
 }
 
-// ---- lining up: snap a picked surface or mask to the output ----
+// lining up: snap a picked surface or mask to the output
 
 export type Align = 'center' | 'fill' | 'fit' | 'left' | 'right' | 'top' | 'bottom' | 'hcenter' | 'vcenter'
 export function alignPoints(pts: P2[], how: Align): P2[] {
@@ -293,7 +293,7 @@ export function alignPoints(pts: P2[], how: Align): P2[] {
   }
 }
 
-// ---- homography: maps the unit square to four points (perspective-correct quads) ----
+// homography: maps the unit square to four points (perspective-correct quads)
 export function homography(q: P2[]): number[] {
   // Square (0,0) (1,0) (1,1) (0,1) to q[0..3].
   const [[x0, y0], [x1, y1], [x2, y2], [x3, y3]] = q
@@ -327,7 +327,7 @@ export function warp(s: Surface, u: number, v: number, H?: number[]): P2 {
   return s.kind === 'quad' ? applyH(H ?? homography(s.points), u, v) : meshAt(s, u, v)
 }
 
-// ---- the stack as Photoshop shows it: each surface with its clipped masks under it ----
+// the stack as Photoshop shows it: each surface with its clipped masks under it
 
 export interface StackGroup { head: StackItem; clips: string[] }   // clips: bottom first
 

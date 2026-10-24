@@ -114,7 +114,7 @@ export function disposeOutline(b: Built) {
 export const outlineOf = (o?: Outline) => ({ ...OUTLINE_DEFAULT, ...(o ?? {}) })
 export type { Built as OutlineBuilt }
 
-// ---- floating lines ----
+// floating lines
 // Loose strokes drawn around the shape, a little away from it, like a
 // sketch over a painting. RICO finds the shape's outline as the camera sees
 // it, pushes it out, smooths it, leaves a gap, and shakes it a little. With

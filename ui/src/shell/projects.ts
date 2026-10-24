@@ -99,7 +99,7 @@ export function openProjectFile() {
   })
 }
 
-// ---- starter projects ---------------------------------------------------------------
+// starter projects
 
 export interface Starter {
   id: string

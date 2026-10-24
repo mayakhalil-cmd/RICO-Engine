@@ -6,7 +6,6 @@
 // part of this SDK is acknowledgment that you agree to the SDK license terms. The full NDI SDK may be
 // downloaded at http://ndi.video/
 //
-//***********************************************************************************************************
 //
 // Copyright (C) 2023-2025 Vizrt NDI AB. All rights reserved.
 //
@@ -25,7 +24,6 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 // THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
-//***********************************************************************************************************
 
 // It is important when using video to realize that often you are using difference clocks for different parts
 // of the signal chain. Within NDI, the sender can send at the clock rate that it wants and the receiver will

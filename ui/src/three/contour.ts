@@ -95,7 +95,7 @@ function contours(t: Topo, eye: THREE.Vector3, creaseCos: number): number[][] {
   return chains
 }
 
-// ---- dots and letters: little billboards that keep their size on screen ----
+// dots and letters: little billboards that keep their size on screen
 const GLYPH_VERT = `
 attribute vec3 iPos; attribute float iAngle; attribute float iCell; attribute float iScale;
 uniform vec2 uRes; uniform float uSize; uniform float uCells;

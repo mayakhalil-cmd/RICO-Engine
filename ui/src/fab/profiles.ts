@@ -38,7 +38,7 @@ export function exportProfile(name: string, printer?: Printer): string {
   return JSON.stringify({ rico: 'print-profile', version: 1, name, settings: s, printer: pr }, null, 2)
 }
 
-// ---- reading profiles ----
+// reading profiles
 
 export interface Imported { name: string; settings: Partial<PrintChoice>; printer: Partial<Printer>; used: string[]; skipped: string[] }
 

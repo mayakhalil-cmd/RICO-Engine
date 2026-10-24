@@ -168,7 +168,7 @@ export function gcode(layers: Layer[], s0: PrintSettings, m: GcodeMachine & { li
     return t.s
   }
 
-  // ---- automation and pauses ----
+  // automation and pauses
   const events: PrintEvent[] = []
   const at = new Map<number, PrintEvent[]>()
   const addEvent = (layer: number, rule: string, name: string, steps: Step[]) => {
@@ -226,7 +226,7 @@ export function gcode(layers: Layer[], s0: PrintSettings, m: GcodeMachine & { li
     seconds += t.s
   }
 
-  // ---- the start ----
+  // the start
   out.push('; made with RICO', `; printer: ${m.name}`, `; layer height: ${s.layer}`, `; nozzle temperature: ${s.nozzleTemp}`, `; bed temperature: ${s.bedTemp}`)
   const head = out.length
   out.push(fill(m.start))
@@ -271,7 +271,7 @@ export function gcode(layers: Layer[], s0: PrintSettings, m: GcodeMachine & { li
     st.x = q[0]; st.y = q[1]; st.z = 1; st.retracted = s.retract > 0
   }
 
-  // ---- the layers ----
+  // the layers
   const fanMax = s.fan, fanNormal = Math.min(s.fanMin ?? s.fan, s.fan)
   let prevZ = 0
   let tempsSet = false
@@ -313,7 +313,7 @@ export function gcode(layers: Layer[], s0: PrintSettings, m: GcodeMachine & { li
     prevZ = L.z
   })
 
-  // ---- the end ----
+  // the end
   for (const e of at.get(layers.length) ?? []) stepLines(e, layers.length)
   out.push(fill(m.end))
   seconds *= 1.15   // speeding up and slowing down at corners

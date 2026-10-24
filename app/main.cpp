@@ -1,5 +1,5 @@
 // RICO
-// Entry point, main loop and settings. Licensed under the MIT license, see LICENSE.
+// Entry point, main loop and settings. See LICENSE for the license.
 
 #ifndef NOMINMAX
 #define NOMINMAX
@@ -37,7 +37,7 @@ ID3D11Texture2D* g_sharedTexture = nullptr;  // For AE sharing
 #define M_PI 3.14159265358979323846
 #endif
 
-// ===== ACCESSIBILITY GLOBALS ===== 
+// ACCESSIBILITY GLOBALS
 bool g_showAccessibilityPopup = false;
 int  g_colorBlindMode = 0;
 bool  g_highContrast = false;
@@ -67,7 +67,7 @@ void PopSubTabStyle() { ImGui::PopStyleColor(3); }
     extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 
-    // ===== FORWARD DECLARATIONS =====
+    // FORWARD DECLARATIONS
 
     // D3D
     bool CreateDeviceD3D(HWND hWnd);
@@ -299,10 +299,10 @@ void PopSubTabStyle() { ImGui::PopStyleColor(3); }
   
     AERecordingState g_aeRecState;
 
-// ===== LED STRIP STATE =====
+// LED STRIP STATE
 LEDStripController g_ledStrip;
 
-// ===== GUITAR-TO-MIDI GLOBALS =====
+// GUITAR-TO-MIDI GLOBALS
 SimpleGuitarSystem* g_guitarSystem = nullptr;
 
 // LED combo preset: low band cutoff
@@ -355,7 +355,7 @@ static std::vector<TimedSequence> g_timedSequences;
 static bool g_sequenceTimerRunning = false;
 static std::chrono::steady_clock::time_point g_sequenceStartTime;
 
-    // ===== PRESETS =====
+    // PRESETS
     void InitializePresets() {
         g_presets.clear();
 
@@ -500,7 +500,7 @@ static std::chrono::steady_clock::time_point g_sequenceStartTime;
         style.ScaleAllSizes(g_config.uiScale);
     }
 
-    // ===== CONFIG =====
+    // CONFIG
     // Some settings can only be applied after the engine has started.
     static int g_pendingMidiBackend = 0;
     static std::string g_pendingTransportId;
@@ -770,7 +770,7 @@ static std::chrono::steady_clock::time_point g_sequenceStartTime;
         }
     }
 
-    // ===== ENGINE =====
+    // ENGINE
     // Work that runs every frame no matter which interface is showing.
 
     static void EngineStart() {
@@ -857,7 +857,7 @@ static std::chrono::steady_clock::time_point g_sequenceStartTime;
         MQTTDisconnect();
     }
 
-    // ===== INTERFACES =====
+    // INTERFACES
 
     static bool g_webMode = false;
     static bool g_splash = false;      // the start screen is showing
@@ -935,7 +935,7 @@ static std::chrono::steady_clock::time_point g_sequenceStartTime;
         g_running = false;
     }
 
-    // ===Entry point===
+    // Entry point
     int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
         CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED);
 

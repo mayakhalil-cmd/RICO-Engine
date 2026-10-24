@@ -28,7 +28,7 @@ export function onSharedChange(fn: () => void) {
 }
 export const sharedVersion = () => listVersion
 
-// ---- pictures ----
+// pictures
 
 export function putPicture(name: string, from: string): SharedPicture {
   let p = pictures.get(name)
@@ -58,7 +58,7 @@ export const pictureWanted = (name: string) => performance.now() - (wanted.get(n
 export const pictureLabel = (n: string) => (n === 'Create' ? 'Motion' : n)
 export const pictureNames = () => ['Create', ...[...pictures.keys()].filter((n) => n !== 'Create')]
 
-// ---- shapes ----
+// shapes
 
 export function putShape(name: string, geometry: unknown, from: string) {
   const s = shapes.get(name)

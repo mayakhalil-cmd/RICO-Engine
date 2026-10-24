@@ -34,7 +34,7 @@ std::chrono::steady_clock::time_point g_lastDeviceScan;
 using Args = const json&;
 using Handler = std::function<json(Args)>;
 
-// ---- DMX: any universe over Art-Net or sACN, and finding Art-Net nodes ----
+// DMX: any universe over Art-Net or sACN, and finding Art-Net nodes
 // The lighting desk in the interface sends whole universes (512 channels)
 // about 40 times a second. Art-Net goes to the target IP (or broadcast);
 // sACN (E1.31) goes to its multicast group, so any sACN node can listen.
@@ -154,7 +154,7 @@ void readArtReplies() {
     }
 }
 
-// ---- helpers -------------------------------------------------------------
+// helpers
 
 std::string str(Args a, const char* key, const std::string& fallback = "") {
     auto it = a.find(key);
@@ -233,7 +233,7 @@ const char* controlTypeName(int t) {
     return "other";
 }
 
-// ---- state ---------------------------------------------------------------
+// state
 
 const std::string& localIp() {
     static std::string ip = GetLocalIPAddress();
@@ -418,7 +418,7 @@ json liveState() {
     };
 }
 
-// ---- commands ------------------------------------------------------------
+// commands
 
 std::unordered_map<std::string, Handler>& commands() {
     static std::unordered_map<std::string, Handler> c;

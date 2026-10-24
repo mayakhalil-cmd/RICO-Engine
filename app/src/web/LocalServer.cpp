@@ -30,7 +30,7 @@ namespace {
 
 const uintptr_t kNoSocket = ~(uintptr_t)0;
 
-// ---- SHA-1 and base64, only used for the WebSocket handshake -------------
+// SHA-1 and base64, only used for the WebSocket handshake
 
 struct Sha1 {
     uint32_t h[5] = { 0x67452301, 0xEFCDAB89, 0x98BADCFE, 0x10325476, 0xC3D2E1F0 };

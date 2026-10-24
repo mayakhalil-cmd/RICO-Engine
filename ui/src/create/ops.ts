@@ -8,7 +8,7 @@ import { captureValue, getPlay, timelineOf, trackFor, valueAt } from './timeline
 // Everything you can do to layers, in one place, so the timeline, the
 // inspector, the preview tools and the keyboard shortcuts all agree.
 
-// ---- reading and writing any setting by key ----
+// reading and writing any setting by key
 //   opacity, tr_px (transform), a layer setting, m0_feather (mask 0),
 //   fx_<effect id>_<setting> (an effect)
 
@@ -60,14 +60,14 @@ export function setBinding(id: string, key: string, b: Binding | undefined) {
   }, `${id}.link.${key}`)
 }
 
-// ---- units: the interface shows pixels, percent and degrees ----
+// units: the interface shows pixels, percent and degrees
 
 export const toPxX = (s: Scene, u: number) => s.width / 2 + u * s.height
 export const toPxY = (s: Scene, u: number) => s.height / 2 - u * s.height
 export const fromPxX = (s: Scene, px: number) => (px - s.width / 2) / s.height
 export const fromPxY = (s: Scene, px: number) => (s.height / 2 - px) / s.height
 
-// ---- adding layers ----
+// adding layers
 
 const selectedLayer = () => {
   const { scene, selected } = getCreate()
@@ -123,7 +123,7 @@ export function newShape(kind = 0, w = 0.5, h = 0.5, x = 0, y = 0) {
   return insertLayer(l)
 }
 
-// ---- layer edits ----
+// layer edits
 
 const copyOf = (l: Layer): Layer => {
   const id = newId()
@@ -218,7 +218,7 @@ export function fitToComp(id = getCreate().selected) {
   updateLayer(id ?? '', 'Fit to scene', (l) => ({ ...l, values: { ...l.values, ...defaults(TRANSFORM_PARAMS) } }))
 }
 
-// ---- effects and masks ----
+// effects and masks
 
 export function newEffect(type: string): Effect {
   const t = effectType(type)
@@ -289,7 +289,7 @@ export function changeMasks(id: string, label: string, fn: (list: Mask[]) => Mas
   updateLayer(id, label, (l) => ({ ...l, masks: fn(l.masks ?? []) }), mergeKey)
 }
 
-// ---- precomps ----
+// precomps
 
 /** A layer that shows another composition. */
 export function addPrecompLayer(compId: string) {
@@ -328,7 +328,7 @@ export function precompose(ids?: string[]) {
   toast(`${name} made. Double-click it on the timeline to open it.`, true)
 }
 
-// ---- editing like a video editor ----
+// editing like a video editor
 
 /** Ripple delete: takes the layer out and moves everything after it back to close the gap. */
 export function rippleDelete(id = getCreate().selected) {

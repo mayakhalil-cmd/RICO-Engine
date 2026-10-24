@@ -117,7 +117,7 @@ vec4 rStroke(vec3 p, vec3 nrm, float size, float stretch, float ang, float seed)
   }
   return res;
 }
-// ---- looks on the lit picture ----
+// looks on the lit picture
 float rH2(vec2 p) { return rHash(vec3(p, 0.37)); }
 float rLum(vec3 c) { return dot(c, vec3(0.299, 0.587, 0.114)); }
 // a printed dot: big where it is dark
@@ -550,7 +550,7 @@ export function toonGradient(steps: number): THREE.DataTexture {
   return tex
 }
 
-// ---- the look as GLSL, for TouchDesigner and other apps that take shader code ----
+// the look as GLSL, for TouchDesigner and other apps that take shader code
 // One function, ricoLook(), that takes your lit color and the surface, and
 // gives back the look: the same layers as here. The colors and numbers are
 // written in; uTime is yours to feed (seconds). Paint and picture layers

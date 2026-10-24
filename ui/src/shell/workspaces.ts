@@ -281,7 +281,7 @@ export function customWorkspaces(): Workspace[] {
   return custom.map((w) => (w.id === active && api ? { ...w, layout: api.toJSON() } : w))
 }
 
-// ---- sharing ---------------------------------------------------------------
+// sharing
 
 export interface WorkspaceFile {
   rico: 'workspace'
@@ -339,7 +339,7 @@ export function importWorkspace(file: unknown): string | null {
   return id
 }
 
-// ---- the live dock ---------------------------------------------------------
+// the live dock
 
 export function setDockApi(a: DockviewApi | null) {
   api = a

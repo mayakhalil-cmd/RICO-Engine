@@ -105,8 +105,8 @@ export default function Settings() {
         </div>
       </Panel>
 
-      <Panel title="Open source">
-        <p className="small">RICO is free and open source under the MIT license, made by Maya Khalil.</p>
+      <Panel title="License">
+        <p className="small">RICO is free to use, made by Maya Khalil. It is under the Business Source License 1.1, and becomes Apache 2.0 on 24 October 2030.</p>
         <p className="small muted">
           It is built on Dear ImGui, RtMidi, oscpack, Spout, miniaudio, PFFFT, Eclipse Paho, nlohmann/json and Open Media
           Transport. NDI support is an optional plugin that uses the NDI runtime you install yourself. NDI is a registered

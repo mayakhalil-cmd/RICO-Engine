@@ -9,7 +9,7 @@ export { THREE }
 
 const MATH = 'const {sin,cos,tan,asin,acos,atan,atan2,abs,floor,ceil,round,min,max,pow,sqrt,exp,log,sign,hypot,PI,random}=Math;const TAU=PI*2;const clamp=(x,l=0,h=1)=>min(h,max(l,x));const mix=(a,b,t)=>a+(b-a)*t;const fract=(x)=>x-floor(x);'
 
-// ---- noise for displacement ----
+// noise for displacement
 const perm = new Uint8Array(512)
 {
   const p = Array.from({ length: 256 }, (_, i) => i)
@@ -36,7 +36,7 @@ export function noise3(x: number, y: number, z: number) {
     l(l(grad(perm[AA + 1] & 15, x, y, z - 1), grad(perm[BA + 1] & 15, x - 1, y, z - 1), u), l(grad(perm[AB + 1] & 15, x, y - 1, z - 1), grad(perm[BB + 1] & 15, x - 1, y - 1, z - 1), u), v), w)
 }
 
-// ---- making shapes ----
+// making shapes
 
 export const PRIMITIVES = ['Sphere', 'Cube', 'Donut', 'Knot', 'Plane', 'Cylinder', 'Crystal', 'Cone']
 
@@ -160,7 +160,7 @@ export function fromCode(code: string, t: number, a: number, b: number, c: numbe
   }
 }
 
-// ---- changing shapes (each returns a new geometry) ----
+// changing shapes (each returns a new geometry)
 
 function prep(g: THREE.BufferGeometry) {
   const out = g.clone()

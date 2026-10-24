@@ -474,7 +474,7 @@ export default function NodeEditor({ graphId, onRename }: { graphId: string; onR
     setPalette(null)
   }
 
-  // ---- comments ----
+  // comments
   const setNote = (id: string, part: Partial<Note>, label: string, key?: string) =>
     changeGraph(graph.id, label, (g) => ({ ...g, notes: (g.notes ?? []).map((x) => (x.id === id ? { ...x, ...part } : x)) }), key ?? `note.${id}.${label}`)
   const addNote = () => {
@@ -537,7 +537,7 @@ export default function NodeEditor({ graphId, onRename }: { graphId: string; onR
     setSelected(new Set())
   }
 
-  // ---- pointer handling ----
+  // pointer handling
   const onHeadDown = (e: RPointerEvent, id: string) => {
     if (e.button !== 0) return
     e.stopPropagation()
@@ -684,7 +684,7 @@ export default function NodeEditor({ graphId, onRename }: { graphId: string; onR
     }
   }
 
-  // ---- drawing ----
+  // drawing
   const anchor = (nodeId: string, port: string, side: 'in' | 'out') => {
     const n = nodesById.get(nodeId)
     const t = n && nodeType(n.type)

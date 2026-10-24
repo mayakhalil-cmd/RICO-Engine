@@ -76,7 +76,7 @@ export function baseUrl(host: string) {
   return h
 }
 
-// ---- serial: send G-code one line at a time and wait for the machine ----
+// serial: send G-code one line at a time and wait for the machine
 
 export interface Stream {
   stop: () => void

@@ -185,7 +185,7 @@ export function removeTarget(route: string, target: string) {
   change('Remove destination', (all) => all.map((r) => (r.id === route ? { ...r, targets: r.targets.filter((t) => t.id !== target) } : r)))
 }
 
-// ---- running ----------------------------------------------------------------
+// running
 
 const smoothed = new Map<string, number>()
 const sent = new Map<string, number>()     // last value sent to each target

@@ -6,7 +6,6 @@
 // part of this SDK is acknowledgment that you agree to the SDK license terms. The full NDI SDK may be
 // downloaded at http://ndi.video/
 //
-//***********************************************************************************************************
 //
 // Copyright (C) 2023-2025 Vizrt NDI AB. All rights reserved.
 //
@@ -25,7 +24,6 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 // THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
-//***********************************************************************************************************
 
 // Because many applications like submitting 16-bit interleaved audio, these functions will convert in and
 // out of that format. It is important to note that the NDI SDK does define fully audio levels, something

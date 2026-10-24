@@ -24,7 +24,7 @@ import PreviewTools from './PreviewTools'
 import FontPicker from '../components/FontPicker'
 import Viewer from './Viewer'
 
-// ---- linking a setting to a signal ------------------------------------------
+// linking a setting to a signal
 
 export function LinkEditor({ binding, param, onChange, onClose }: {
   binding: Binding | undefined
@@ -226,7 +226,7 @@ function updateLayer(id: string, label: string, fn: (l: Layer) => Layer, mergeKe
   changeScene(label, (s) => ({ ...s, layers: s.layers.map((l) => (l.id === id ? fn(l) : l)) }), mergeKey)
 }
 
-// ---- pictures ----------------------------------------------------------------
+// pictures
 
 function readImage(file: File, id?: string) {
   if (!file.type.startsWith('image/')) return toast('That file is not a picture.')
@@ -276,7 +276,7 @@ export function addLayer(type: string) {
   if (type === 'image') pickImage(l.id)
 }
 
-// ---- panels --------------------------------------------------------------------
+// panels
 
 export function CreateLayers() {
   const layers = useCreate((s) => s.scene.layers)

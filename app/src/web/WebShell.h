@@ -13,6 +13,6 @@ bool WebShell_Create(HWND parent, const std::string& url);
 void WebShell_Resize(HWND parent);
 void WebShell_Destroy();
 bool WebShell_Failed();
-bool WebShell_Shown();
+bool WebShell_Shown();   // the interface has started to show (the start screen can go)
 void WebShell_SetZoom(double z);   // the size of the whole interface, like Ctrl + and - in a browser
-double WebShell_Zoom();   // the interface has started to show (the start screen can go)
+double WebShell_Zoom();

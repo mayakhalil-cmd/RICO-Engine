@@ -51,7 +51,7 @@ export const PRESETS: Preset[] = [
   { id: 'tcp', group: 'Values', name: 'TCP', about: 'Lines or JSON over a TCP connection.', part: { kind: 'values', valueProto: 'tcp', port: 7002, format: 'line' } },
 ]
 
-// ---- the list ----
+// the list
 const KEY = 'rico.sends'
 let outputs: Output[] = (() => { try { const v = JSON.parse(localStorage.getItem(KEY) ?? '[]'); return Array.isArray(v) ? v.map((o: Output) => newOutput(o)) : [] } catch { return [] } })()
 let version = 0
@@ -65,13 +65,13 @@ export function setOutputs(next: Output[]) {
 }
 export function useSendOutputs() { useSyncExternalStore((l) => { listeners.add(l); return () => listeners.delete(l) }, () => version); return outputs }
 
-// ---- live state, for the panel ----
+// live state, for the panel
 export interface Live { rate: number; error: string; colors?: Uint8Array }
 const live = new Map<string, Live>()
 export const liveOf = (id: string) => live.get(id)
 const counts = new Map<string, number>()
 
-// ---- sampling pictures ----
+// sampling pictures
 type PictureSource = (name: string) => CanvasImageSource | null
 let source: PictureSource = () => null
 export function setPictureSource(fn: PictureSource) { source = fn }
@@ -97,7 +97,7 @@ function sample(o: Output): Uint8Array | null {
   return out
 }
 
-// ---- sending ----
+// sending
 const opened = new Map<string, string>()      // output id -> what it opened (serial or tcp key)
 const sockets = new Map<string, WebSocket>()
 const last = new Map<string, number>()

@@ -70,7 +70,7 @@ function compile(key: string, body: string): WebGLProgram | string {
   return result
 }
 
-// ---- render targets, one (or two, for feedback) per node ----
+// render targets, one (or two, for feedback) per node
 
 interface Target { fb: WebGLFramebuffer; tex: WebGLTexture; w: number; h: number }
 const targets = new Map<string, Target>()

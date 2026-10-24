@@ -33,7 +33,7 @@ _sock = None
 _last = {}
 
 
-# ---- OSC reading (same as integrations/osc_min.py) ------------------------
+# OSC reading (same as integrations/osc_min.py)
 
 def _string(data, i):
     end = data.index(b"\0", i)
@@ -71,7 +71,7 @@ def parse(data):
     return out
 
 
-# ---- applying values -------------------------------------------------------
+# applying values
 
 def apply(address, value):
     parts = [p for p in address.split("/") if p]
@@ -132,7 +132,7 @@ def _poll():
     return 1 / 60
 
 
-# ---- UI ---------------------------------------------------------------------
+# UI
 
 class RICO_OT_start(bpy.types.Operator):
     bl_idname = "rico.start"

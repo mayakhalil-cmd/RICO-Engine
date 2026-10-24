@@ -33,5 +33,6 @@ every screen without RICO running.
 
 ## License
 
-By contributing you agree that your work is released under the MIT license
-of this project.
+By contributing you agree that your work is released under the license of
+this project (Business Source License 1.1, which becomes Apache 2.0 on the
+Change Date in [LICENSE](LICENSE)).

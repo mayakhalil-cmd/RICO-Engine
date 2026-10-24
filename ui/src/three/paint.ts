@@ -117,7 +117,7 @@ export function brushRadius(id: string): number {
 }
 export const hasPaint = (id: string) => paints.has(id)
 
-// ---- brushes ----
+// brushes
 
 export interface BrushMat { name: string; color?: boolean; mask?: boolean; rough?: number; metal?: number; glow?: boolean; glass?: number; bump?: number; tint?: string }
 export const BRUSH_MATS: BrushMat[] = [

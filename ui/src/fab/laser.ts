@@ -199,7 +199,7 @@ export function frameGcode(jobs: { size: [number, number]; at: [number, number] 
   return ['G21', 'G90', s.origin === 'here' ? 'G92 X0 Y0' : '', `M${glow ? 3 : 5} S${S}`, `G1 X${x0.toFixed(2)} Y${y0.toFixed(2)} F3000`, `G1 X${x1.toFixed(2)} Y${y0.toFixed(2)}`, `G1 X${x1.toFixed(2)} Y${y1.toFixed(2)}`, `G1 X${x0.toFixed(2)} Y${y1.toFixed(2)}`, `G1 X${x0.toFixed(2)} Y${y0.toFixed(2)}`, 'M5', s.origin === 'here' ? 'G0 X0 Y0' : ''].filter(Boolean).join('\n') + '\n'
 }
 
-// ---- sending ----
+// sending
 
 export const LASER_LINKS: { id: LaserSettings['link']; name: string; about: string }[] = [
   { id: 'usb', name: 'USB cable (GRBL)', about: 'Most diode lasers. Pick its COM port. Keep RICO open while it cuts.' },

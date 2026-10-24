@@ -369,7 +369,7 @@ function SurfaceEditor({ o }: { o: Obj3D }) {
   return null
 }
 
-// ---- materials you build from layers ----
+// materials you build from layers
 
 function Swatches({ colors, onChange, max = 4 }: { colors: string[]; onChange: (c: string[]) => void; max?: number }) {
   return (

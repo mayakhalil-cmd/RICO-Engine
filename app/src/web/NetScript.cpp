@@ -233,7 +233,7 @@ std::string NetScript_OscSend(const std::string& host, int port, const std::stri
     return NetScript_UdpSend(host, port, b);
 }
 
-// ---- web requests ----
+// web requests
 
 namespace {
 std::mutex g_httpLock;

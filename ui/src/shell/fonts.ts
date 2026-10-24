@@ -27,7 +27,7 @@ export function onFonts(fn: () => void) { listeners.add(fn); return () => { list
 export const fontChoices = (): FontChoice[] => [...BUILT_IN, ...custom]
 export function useFonts() { useSyncExternalStore((l) => { listeners.add(l); return () => listeners.delete(l) }, () => version); return fontChoices() }
 
-// ---- a tiny database ----
+// a tiny database
 function db(): Promise<IDBDatabase> {
   return new Promise((res, rej) => {
     const r = indexedDB.open('rico-fonts', 1)

@@ -34,7 +34,7 @@ rico.onLive((live) => {
 })
 
 export const MORE_TYPES: NodeType[] = [
-  // ---- events (Max, Blueprint) ----
+  // events (Max, Blueprint)
   {
     type: 'button', name: 'Button', group: 'Events', about: 'Click it to send a hit', inputs: [], outputs: [T('out', 'hit')], params: [], ui: 'button',
     run: (c) => ({ out: c.state.click ? (c.state.click = 0, 1) : 0 }),
@@ -164,7 +164,7 @@ export const MORE_TYPES: NodeType[] = [
     },
   },
 
-  // ---- lists ----
+  // lists
   {
     type: 'pack', name: 'Pack', group: 'Data', about: 'Puts up to four values into one list', inputs: [T('a'), T('b'), T('c'), T('d')],
     outputs: [{ key: 'out', label: 'list', type: 'list' }], params: [n('count', 'How many', 2, 1, 4, 1), n('a', 'a', 0), n('b', 'b', 0), n('c', 'c', 0), n('d', 'd', 0)],
@@ -179,7 +179,7 @@ export const MORE_TYPES: NodeType[] = [
     },
   },
 
-  // ---- data (DATs) ----
+  // data (DATs)
   {
     type: 'text', name: 'Text', group: 'Data', about: 'A piece of text, with {a} and {b} filled in', inputs: [T('a'), T('b')], outputs: [{ key: 'out', label: 'text', type: 'text' }],
     params: [{ key: 'text', label: 'Text', kind: 'text', default: 'Value {a}' }, n('a', 'a', 0), n('b', 'b', 0)],
@@ -221,7 +221,7 @@ export const MORE_TYPES: NodeType[] = [
     },
   },
 
-  // ---- ins ----
+  // ins
   {
     type: 'osc-in', name: 'OSC in', group: 'Sources', about: 'The value of an OSC address coming in, and a hit for each message', inputs: [],
     outputs: [T('out'), T('hit')], params: [{ key: 'address', label: 'Address', kind: 'text', default: '/fader/1' }],
@@ -249,7 +249,7 @@ export const MORE_TYPES: NodeType[] = [
     }),
   },
 
-  // ---- outs ----
+  // outs
   {
     type: 'osc-list-out', name: 'OSC message', group: 'Outputs', about: 'Sends a list, or text, as one OSC message with many values',
     inputs: [{ key: 'in', label: 'list', type: 'list' }, { key: 'text', label: 'text', type: 'text' }, T('send', 'hit')], outputs: [],

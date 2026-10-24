@@ -52,7 +52,7 @@ function Txt({ value, onChange, width, label, placeholder }: { value: string; on
   )
 }
 
-// ---- where a row comes from ------------------------------------------------------
+// where a row comes from
 
 type SourceKind = 'manual' | 'midi-cc' | 'midi-note' | 'osc' | 'key' | 'audio' | 'other'
 const SOURCE_LABEL: Record<SourceKind, string> = {
@@ -125,7 +125,7 @@ function NowCell({ r }: { r: Route }) {
   )
 }
 
-// ---- where it goes --------------------------------------------------------------
+// where it goes
 
 function TargetLine({ r, t }: { r: Route; t: Target }) {
   const set = (part: Partial<Target>) => updateTarget(r.id, t.id, part)

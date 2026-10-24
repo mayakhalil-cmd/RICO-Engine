@@ -1,7 +1,7 @@
 # RICO
 
-**Real-time Integration Control Operations.** RICO is a free, open source
-signal hub for Windows. It sits between your controllers, your creative apps
+**Real-time Integration Control Operations.** RICO is a free signal hub and
+creative engine for Windows. It sits between your controllers, your creative apps
 and your hardware, and makes them talk to each other.
 
 Turn a knob on a MIDI controller and move a light in Unreal, a camera in
@@ -43,7 +43,11 @@ someone building their own hardware.
   effects, 16 blend modes, the usual motion graphics keys, rulers, guides and safe
   areas, rotoscoping (keyed mask paths, and a live clean-plate background
   remover), your own GLSL layers that react live, curves that send OSC,
-  MIDI and DMX, cues, and real time or frame-exact MP4 rendering.
+  MIDI and DMX, cues, and real time or frame-exact MP4 rendering. The
+  timeline zooms with a navigator bar, shows time as frames, seconds or
+  timecode, folds keys into dots, and has comp settings (size, frame rate,
+  snap, loop) one click away. Precomps play with their own time and show
+  the layers under them through.
 - **Color.** Grading, curves, levels, .cube LUTs, and a LUT matched from a
   single picture.
 - **Audio lab.** Accurate bands you shape and name yourself, tempo, pitch,
@@ -53,14 +57,15 @@ someone building their own hardware.
   instrument tracks you play from the keyboard or MIDI, recording, a piano
   roll and mixdown; plus a waveform editor and a sound generator.
 - **Projection mapping.** Surfaces, grids, masks (also from a photo with a
-  magic wand, or from a 3D object), soft edges, 3D objects from a
+  magic wand, or from a 3D object) that sit under the surface they mask and
+  move with it, a canvas in the exact size you set, soft edges, 3D objects from a
   calibrated projector, and lens gobos: one per projector, the exact shape
   of your masks, on a round plate that slides snugly over the lens or into
   the lens hole.
 - **Print and laser.** A slicer that sends gobos and STL files to
   Klipper, OctoPrint and PrusaLink printers or over USB, with the full set
-  of print settings, normal and tree supports (and your own), profiles you
-  can import, and automation for robots that work with the printer. Laser
+  of print settings, normal and tree supports (and your own) found from the
+  faces of the part, support walls that stand firm, profiles you can import, and automation for robots that work with the printer. Laser
   cutting for GRBL and FluidNC lasers.
 - **Lighting desk.** Fixtures, groups, color and position, effects in time
   with the music, cues with fades, links to any signal, 3D twins with beams
@@ -90,10 +95,27 @@ someone building their own hardware.
   lighting, animating and rendering, an axis ball, World or Object
   handles, a 3D timeline, deformers (bend, twist, taper, squash, wave),
   morphing, bone posing, and light simulation: gravity, bumping, breaking
-  and a small fluid. All linkable to signals and usable as a Motion layer
-  or a precomp with its own time.
+  and a small fluid. A movable pivot, so shapes turn, size and bend from
+  the point you choose. All linkable to signals and usable as a Motion
+  layer or a precomp with its own time.
+- **Symbiote.** Turn any shape or model into a living alien goo. Its skin
+  crawls, swells and breathes, with veins under the skin that push it out
+  and throb. Tendrils shoot out toward things near it, a few thick and many
+  thin, grab on, sag and stretch into a web when you pull away, then snap
+  one by one, curl back and drip onto the floor, where the puddles stay or
+  fade. Two symbiotes reach for each other and can be ripped apart. Every
+  part of how it looks and moves is in its own Symbiote tab, and every
+  number can be keyed or linked to a signal.
+- **Fluid morph.** A shape melts into another like a living goo, and the
+  outline follows the moving surface.
+- **Nodes as text.** Any node network can be written as a few readable
+  lines and read back, so you can write networks by hand or with a code
+  helper.
 - **A welcome page and a tour.** What RICO does, what people make with it,
-  and a two-minute tour of every part.
+  and a two-minute tour of every part. Hover any button for what it does,
+  its shortcut and a link to read more.
+- **Interface size.** Fit your screen, or pick your own size, in
+  File > Settings.
 - **Output windows.** Send Motion to a projector and pin its corners onto a
   surface. Soft edges for two projectors.
 - **Other screens.** Open RICO on a tablet or a second computer and share
@@ -117,7 +139,7 @@ someone building their own hardware.
 ## Download
 
 Get the latest version from
-[Releases](https://github.com/mayakhalil-cmd/RICO/releases). Unzip it anywhere,
+[Releases](https://github.com/mayakhalil-cmd/RICO-Engine/releases). Unzip it anywhere,
 also on a USB stick, and open `RICO.exe`.
 
 RICO needs Windows 10 or 11. Some parts need a little more:
@@ -137,13 +159,15 @@ You need Visual Studio 2022 with "Desktop development with C++", CMake,
 [vcpkg](https://github.com/microsoft/vcpkg) and Node.js.
 
 ```powershell
-git clone https://github.com/mayakhalil-cmd/RICO.git
-cd RICO
+git clone https://github.com/mayakhalil-cmd/RICO-Engine.git
+cd RICO-Engine
 cmake --preset windows
 cmake --build --preset release
 ```
 
-RICO ends up in `build\RICO\`, ready to copy anywhere. The full guide, with
+RICO ends up in `build\RICO\`, ready to copy anywhere. The Teletactile
+title font is not in the repository; put `Teletactile.ttf` in
+`ui/public/fonts/` before you build, or RICO uses Courier Prime for titles. The full guide, with
 the problems people usually run into, is in [docs/BUILDING.md](docs/BUILDING.md).
 
 ## Folder guide
@@ -155,7 +179,7 @@ the problems people usually run into, is in [docs/BUILDING.md](docs/BUILDING.md)
 | `include/rico/` | The plugin API, plain C |
 | `plugins/ndi/` | The NDI plugin |
 | `integrations/` | Small scripts for Blender, Maya and Houdini |
-| `third_party/` | Open source code RICO is built on |
+| `third_party/` | The open source code RICO is built on |
 | `docs/` | Building, testing, plugins and ideas for showcases |
 | `tools/` | Icon maker and other helpers |
 
@@ -176,7 +200,14 @@ way, and you can add others. Read [docs/PLUGINS.md](docs/PLUGINS.md).
 
 ## License
 
-MIT, see [LICENSE](LICENSE). The projects RICO is built on are listed in
+RICO is free to use under the
+[Business Source License 1.1](LICENSE). You can use it for anything,
+including paid performances, installations, shows and client work. What you
+cannot do is sell RICO itself, or a changed copy of it, or offer it as a
+paid service. On 24 October 2030 this version becomes open source under the
+[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+
+The projects RICO is built on keep their own licenses, listed in
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 NDI(R) is a registered trademark of Vizrt NDI AB. RICO is not affiliated with

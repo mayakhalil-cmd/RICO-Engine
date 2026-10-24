@@ -130,7 +130,7 @@ export function setLook(ids: string[], part: Look) {
 }
 export function clearProgrammer() { changeDesk((d) => ({ ...d, programmer: {} })) }
 
-// ---- cues ----
+// cues
 
 let fadeFrom: Record<string, Look> = {}
 let fadeTo: Record<string, Look> = {}
@@ -163,7 +163,7 @@ export function goNext() {
   if (next) goCue(next.id)
 }
 
-// ---- computing what every fixture does right now ----
+// computing what every fixture does right now
 
 const hex = (c: string) => { const n = parseInt(c.replace('#', ''), 16) || 0; return [(n >> 16 & 255) / 255, (n >> 8 & 255) / 255, (n & 255) / 255] }
 const toHex = (r: number, g: number, b: number) => '#' + [r, g, b].map((v) => Math.round(Math.max(0, Math.min(1, v)) * 255).toString(16).padStart(2, '0')).join('')
@@ -252,7 +252,7 @@ function hsv(h: number, s: number, v: number) {
   return [[v, u, p], [q, v, p], [p, v, u], [p, q, v], [u, p, v], [v, p, q]][((i % 6) + 6) % 6]
 }
 
-// ---- in 3D and in the room ----
+// in 3D and in the room
 
 type V3 = [number, number, number]
 // where a 3D object is right now (the 3D view puts in its live places)
@@ -331,7 +331,7 @@ export function frames(looks: Record<string, Look>): Map<number, Uint8Array> {
   return out
 }
 
-// ---- sending ----
+// sending
 
 let latest = new Map<number, Uint8Array>()
 export const latestFrames = () => latest

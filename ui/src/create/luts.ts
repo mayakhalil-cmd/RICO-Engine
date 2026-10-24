@@ -61,7 +61,7 @@ const b64 = (bytes: Uint8Array) => {
 export const lutBytes = (l: Lut) => Uint8Array.from(atob(l.data), (c) => c.charCodeAt(0))
 const rid = () => Math.random().toString(36).slice(2, 9)
 
-// ---- .cube files ----
+// .cube files
 
 export function parseCube(text: string, name: string): Lut {
   let size = 0
@@ -119,7 +119,7 @@ export function makeLut(name: string, size: number, fn: (r: number, g: number, b
   return { id: rid(), name, size, data: b64(bytes) }
 }
 
-// ---- matching a look from one frame ----
+// matching a look from one frame
 // Works in Lab: brightness is matched by its histogram, color by the mean and
 // spread of a and b. The result is baked into a 33 point LUT.
 
@@ -199,7 +199,7 @@ export function matchLut(source: Uint8ClampedArray | Uint8Array, reference: Uint
   })
 }
 
-// ---- curves ----
+// curves
 // Stored as text: "m:0,0 1,1|r:0,0 1,1|g:0,0 1,1|b:0,0 1,1".
 
 export type CurvePoints = [number, number][]

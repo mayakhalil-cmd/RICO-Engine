@@ -238,7 +238,7 @@ function Features() {
   )
 }
 
-// ---- shaping ----------------------------------------------------------------------------
+// shaping
 
 const SHAPE_PRESETS: { name: string; about: string; shape: Partial<Shape> }[] = [
   { name: 'Flat', about: 'No change', shape: { hp: 0, lp: 0, low: 0, mid: 0, high: 0, gate: -100, comp: 0, makeup: 0 } },
@@ -293,7 +293,7 @@ function ShapePanel() {
   )
 }
 
-// ---- what is playing ----------------------------------------------------------------------
+// what is playing
 
 const KIND_COLORS = ['#6c7a66', '#30e0ff', '#3bff03', '#ff8a3d']
 const KIND_IDS = ['silence', 'speech', 'music', 'foley']

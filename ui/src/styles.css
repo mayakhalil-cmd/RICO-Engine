@@ -101,7 +101,7 @@ canvas, svg text { font-family: var(--font); }
 .warn { color: var(--warn); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-/* ---- shell -------------------------------------------------------------- */
+/* shell */
 
 .shell {
   display: grid;
@@ -163,7 +163,7 @@ canvas, svg text { font-family: var(--font); }
 .main { grid-area: main; overflow: auto; padding: var(--gap); scroll-behavior: smooth; }
 .main.flush { padding: 0; overflow: hidden; }
 
-/* ---- the wire: every packet RICO moves, scrolling past --------------------- */
+/* the wire: every packet RICO moves, scrolling past */
 
 .wire {
   grid-area: wire;
@@ -177,7 +177,7 @@ canvas, svg text { font-family: var(--font); }
 .wire canvas { width: 100%; height: calc(var(--wire) - 2px); display: block; }
 .wire-last { padding: 0 14px; font-size: 0.82em; color: var(--muted); white-space: nowrap; max-width: 42vw; overflow: hidden; text-overflow: ellipsis; }
 
-/* ---- pieces ---------------------------------------------------------------- */
+/* pieces */
 
 .pill {
   display: inline-flex;
@@ -295,14 +295,14 @@ canvas, svg text { font-family: var(--font); }
 .meter.out > i { background: var(--pink); }
 .meter.in > i { background: var(--blue); }
 
-/* ---- toasts ----------------------------------------------------------------- */
+/* toasts */
 
 .toasts { position: fixed; right: 16px; bottom: calc(var(--wire) + 14px); display: grid; gap: 8px; z-index: 60; max-width: 420px; }
 .toast { background: var(--bg); border: 2px solid var(--pink); padding: 10px 14px; box-shadow: 5px 5px 0 rgba(var(--pink-rgb), 0.35); animation: toast-in 0.18s ease-out; user-select: text; }
 .toast.good { border-color: var(--lime); box-shadow: 5px 5px 0 rgba(var(--lime-rgb), 0.3); }
 @keyframes toast-in { from { transform: translateY(8px); opacity: 0; } }
 
-/* ---- boot ------------------------------------------------------------------- */
+/* boot */
 
 .boot { position: fixed; inset: 0; z-index: 80; background: var(--bg); display: grid; place-items: center; transition: opacity 0.35s; }
 .boot.done { opacity: 0; pointer-events: none; }
@@ -313,7 +313,7 @@ canvas, svg text { font-family: var(--font); }
 }
 body.calm *, body.calm *::before, body.calm *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 
-/* ---- small windows ---------------------------------------------------------- */
+/* small windows */
 
 @media (max-width: 760px) {
   :root { --rail: 60px; --gap: 14px; }
@@ -323,7 +323,7 @@ body.calm *, body.calm *::before, body.calm *::after { animation-duration: 0.001
   .wire-last { display: none; }
 }
 
-/* ---- logo ------------------------------------------------------------------- */
+/* logo */
 
 .logo {
   --ox: 0.07em; --oy: 0.07em;
@@ -351,7 +351,7 @@ body.calm *, body.calm *::before, body.calm *::after { animation-duration: 0.001
 @media (prefers-reduced-motion: reduce) { .logo-cursor { animation: none; } }
 @keyframes blink { 50% { opacity: 0; } }
 
-/* ---- home ------------------------------------------------------------------- */
+/* home */
 
 .flow { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 0; }
 .flow-col { padding: 0 18px; display: grid; gap: 10px; align-content: start; min-width: 0; }
@@ -376,7 +376,7 @@ body.calm *, body.calm *::before, body.calm *::after { animation-duration: 0.001
 .steps { margin: 0 0 14px; padding-left: 1.4em; display: grid; gap: 8px; max-width: 80ch; user-select: text; }
 .steps li::marker { color: var(--lime); font-family: var(--font-title); }
 
-/* ---- tables and logs --------------------------------------------------------- */
+/* tables and logs */
 
 .table-wrap { overflow: auto; border: 2px solid var(--line); }
 .table { width: 100%; border-collapse: collapse; }
@@ -414,7 +414,7 @@ input[type='range'].range::-webkit-slider-thumb { appearance: none; width: 12px;
 input[type='range'].range:focus-visible { outline: none; }
 input[type='range'].range:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 2px #000, 0 0 0 4px var(--lime); }
 
-/* ---- video -------------------------------------------------------------------- */
+/* video */
 
 .transports { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
 .transport { border: 2px solid var(--line); padding: 12px; background: var(--bg); }
@@ -425,7 +425,7 @@ input[type='range'].range:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 
 .transport-name { font-family: var(--font-title); font-size: 1.5em; }
 .transport.on .transport-name { color: var(--lime); }
 
-/* ---- create ------------------------------------------------------------------- */
+/* create */
 
 .create {
   display: grid;
@@ -481,9 +481,9 @@ label.param { grid-template-columns: 1fr auto; align-items: center; }
 label.param .select, label.param .input { min-width: 0; }
 label.param:has(.select), label.param:has(.input) { grid-template-columns: 1fr; }
 
-/* ======================================================================
+/*
    Workspace shell: the app row, the workspace tabs, docked panels below
-   ====================================================================== */
+   */
 
 .app { display: grid; grid-template-rows: auto minmax(0, 1fr) var(--wire); height: 100%; }
 /* The dock makes its own stacking context, so its split lines can never
@@ -573,7 +573,7 @@ kbd { font-family: var(--font); font-size: 0.78em; color: var(--muted); border: 
 .ws-tab.add:hover { color: var(--pink); }
 .ws-add-list { left: auto; right: 0; }
 
-/* ---- dock theme ------------------------------------------------------------- */
+/* dock theme */
 
 .dockview-theme-rico {
   color-scheme: dark;
@@ -635,7 +635,7 @@ kbd { font-family: var(--font); font-size: 0.78em; color: var(--muted); border: 
 .dock-empty-head { max-width: 72ch; }
 .dock-empty-head h2 { color: var(--lime); margin-bottom: 8px; }
 
-/* ---- overlays ------------------------------------------------------------------- */
+/* overlays */
 
 .overlay { position: fixed; inset: 0; z-index: 90; background: rgba(0, 0, 0, 0.7); display: grid; justify-items: center; align-items: start; padding-top: 12vh; }
 .palette { width: min(640px, 92vw); background: var(--bg); border: 2px solid var(--lime); box-shadow: 8px 8px 0 rgba(var(--pink-rgb), 0.45); }
@@ -660,7 +660,7 @@ kbd { font-family: var(--font); font-size: 0.78em; color: var(--muted); border: 
 .param.dropping { outline: 2px dashed var(--lime); outline-offset: 4px; }
 .param .icon-btn { font-family: var(--font-title); font-size: 0.9em; }
 
-/* ---- MIDI controls ---------------------------------------------------------------- */
+/* MIDI controls */
 
 .ctl-group { display: grid; gap: 6px; }
 .ctl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(86px, 1fr)); gap: 8px; }
@@ -678,7 +678,7 @@ kbd { font-family: var(--font); font-size: 0.78em; color: var(--muted); border: 
 .ctl-name { font-size: 0.78em; color: var(--text); max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ctl-val { font-size: 0.74em; color: var(--muted); font-variant-numeric: tabular-nums; }
 
-/* ---- OSC addresses ------------------------------------------------------------------ */
+/* OSC addresses */
 
 .addr-group { border-left: 2px solid var(--line); padding-left: 10px; display: grid; gap: 2px; }
 .addr-top { color: var(--muted); font-size: 0.85em; }
@@ -693,7 +693,7 @@ kbd { font-family: var(--font); font-size: 0.78em; color: var(--muted); border: 
 .addr.out .spark polyline { stroke: var(--pink); }
 .addr.in .spark polyline { stroke: var(--blue-read); }
 
-/* ---- audio ------------------------------------------------------------------------- */
+/* audio */
 
 .bands { display: flex; gap: 14px; align-items: flex-end; flex-wrap: wrap; }
 .band { display: grid; gap: 6px; justify-items: center; cursor: grab; font-size: 0.85em; color: var(--muted); }
@@ -701,7 +701,7 @@ kbd { font-family: var(--font); font-size: 0.78em; color: var(--muted); border: 
 .band-bar i { position: absolute; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, var(--lime), var(--lime) 70%, var(--pink)); }
 .hit-light { width: 46px; height: 46px; background: var(--pink); box-shadow: 0 0 18px var(--pink); }
 
-/* ---- DMX ------------------------------------------------------------------------------ */
+/* DMX */
 
 .dmx-info { min-height: 1.5em; }
 .dmx-grid { display: grid; grid-template-columns: repeat(32, minmax(14px, 1fr)); gap: 2px; touch-action: none; }
@@ -712,7 +712,7 @@ kbd { font-family: var(--font); font-size: 0.78em; color: var(--muted); border: 
 .dmx-cell:hover { border-color: var(--text); }
 .dmx-cell span { position: absolute; top: -1px; left: 1px; font-size: 8px; color: var(--muted); pointer-events: none; }
 
-/* ---- Create in panels ----------------------------------------------------------------- */
+/* Create in panels */
 
 .create-preview { height: 100%; display: grid; grid-template-rows: auto minmax(0, 1fr); }
 .create-preview .create-bar { border-bottom: 1px solid var(--line); padding: 6px 10px; gap: 10px; }
@@ -729,7 +729,7 @@ kbd { font-family: var(--font); font-size: 0.78em; color: var(--muted); border: 
 .dialog-foot { display: flex; gap: 10px; align-items: center; justify-content: flex-end; padding: 12px 16px; border-top: 1px solid var(--line); flex-wrap: wrap; }
 .dialog-foot .grow { flex: 1; }
 
-/* ---- panel library ------------------------------------------------------------ */
+/* panel library */
 
 .picker { display: grid; gap: 14px; min-width: 0; }
 .picker-groups { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); align-items: start; }
@@ -757,7 +757,7 @@ kbd { font-family: var(--font); font-size: 0.78em; color: var(--muted); border: 
 .group-add { width: 24px; height: 24px; background: none; border: 1px solid transparent; color: var(--dim); cursor: pointer; font-size: 1.1em; line-height: 1; }
 .group-add:hover { color: var(--lime); border-color: var(--line); }
 
-/* ---- script panels ----------------------------------------------------------------- */
+/* script panels */
 
 .script { height: 100%; display: grid; grid-template-rows: auto minmax(0, 1fr); }
 .script-bar { display: flex; gap: 8px; align-items: center; padding: 6px 10px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
@@ -784,7 +784,7 @@ kbd { font-family: var(--font); font-size: 0.78em; color: var(--muted); border: 
 .code-gutter { color: var(--dim); text-align: right; overflow: hidden; user-select: none; border-right: 1px solid var(--line); min-width: 3.2em; }
 .code-text { width: 100%; height: 100%; resize: none; border: 0; outline: none; background: transparent; color: var(--text); white-space: pre; overflow: auto; tab-size: 2; user-select: text; caret-color: var(--lime); }
 
-/* ---- colors and shortcuts ------------------------------------------------------------ */
+/* colors and shortcuts */
 
 .themes { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 8px; }
 .theme { display: grid; gap: 8px; padding: 10px; border: 1px solid rgba(255, 255, 255, 0.15); cursor: pointer; text-align: left; font-family: var(--font-title); letter-spacing: 0.04em; }
@@ -804,7 +804,7 @@ kbd { font-family: var(--font); font-size: 0.78em; color: var(--muted); border: 
 .chip.key.signal { border-color: var(--blue); }
 .chip.key .dot { width: 6px; height: 6px; background: var(--blue-read); }
 
-/* ---- smaller screens --------------------------------------------------------------- */
+/* smaller screens */
 
 @media (max-width: 1100px) {
   .search { min-width: 0; }
@@ -831,7 +831,7 @@ kbd { font-family: var(--font); font-size: 0.78em; color: var(--muted); border: 
   .menu > button { padding: 4px 4px; }
 }
 
-/* ---- performance readout ------------------------------------------------------------ */
+/* performance readout */
 
 .perf { position: relative; }
 .perf-btn { cursor: pointer; background: var(--bg); font: inherit; font-size: 0.86em; }
@@ -857,7 +857,7 @@ kbd { font-family: var(--font); font-size: 0.78em; color: var(--muted); border: 
 .perf-tip { margin: 3px 0 0; font-size: 0.8em; color: var(--blue-read); }
 .perf-foot { margin: 0; }
 
-/* ---- routes ------------------------------------------------------------------------ */
+/* routes */
 
 .routes { display: grid; gap: 14px; align-content: start; min-height: 100%; }
 .routes.over { outline: 2px dashed var(--lime); outline-offset: -6px; }
@@ -905,7 +905,7 @@ kbd { font-family: var(--font); font-size: 0.78em; color: var(--muted); border: 
   .route-from { border-right: 0; border-bottom: 1px solid var(--line); }
 }
 
-/* ---- node editor --------------------------------------------------------------------- */
+/* node editor */
 
 .ne-wrap { height: 100%; display: grid; grid-template-rows: auto minmax(0, 1fr); }
 .ne-bar { display: flex; gap: 8px; align-items: center; padding: 6px 10px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
@@ -986,7 +986,7 @@ kbd { font-family: var(--font); font-size: 0.78em; color: var(--muted); border: 
 .key-btn.animated { color: var(--warn); }
 .key-btn.here { color: var(--warn); }
 
-/* ---- timeline ---------------------------------------------------------------------- */
+/* timeline */
 
 .tl { height: 100%; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; outline: none; position: relative; }
 .tl.dropping { box-shadow: inset 0 0 0 2px var(--lime); }
@@ -1039,7 +1039,7 @@ kbd { font-family: var(--font); font-size: 0.78em; color: var(--muted); border: 
 .tl-progress i { display: block; height: 100%; background: var(--lime); }
 .tl-progress span { position: absolute; inset: 0; display: grid; place-items: center; font-size: 0.75em; mix-blend-mode: difference; }
 
-/* ---- 3D playground ------------------------------------------------------------------- */
+/* 3D playground */
 
 .three { height: 100%; display: flex; flex-direction: column; position: relative; outline: none; }
 .three > .three-view { flex: 1 1 auto; }
@@ -1069,7 +1069,7 @@ kbd { font-family: var(--font); font-size: 0.78em; color: var(--muted); border: 
 .three-link { border-left: 3px solid var(--blue); padding-left: 8px; display: grid; gap: 4px; }
 .three-link .input.num { width: 64px; }
 
-/* ---- output windows -------------------------------------------------------------------- */
+/* output windows */
 
 body.output-window { background: #000; cursor: none; }
 body.output-window:has(.out-ui.show) { cursor: default; }
@@ -1104,7 +1104,7 @@ body.output-window::after { display: none; }
 .script-controls .param-head { display: flex; justify-content: space-between; gap: 10px; }
 .script-controls .param-value { color: var(--muted); font-variant-numeric: tabular-nums; }
 
-/* ---- signal table ------------------------------------------------------------------------ */
+/* signal table */
 
 .sig-scroll { overflow-x: auto; }
 .sig-table { width: 100%; border-collapse: collapse; min-width: 1100px; }
@@ -1218,7 +1218,7 @@ body.output-window::after { display: none; }
 .tl-edit .select { width: auto; }
 .tl-bar-top { row-gap: 4px; padding: 4px 10px; }
 
-/* ---- timeline and inspector -------------------------------------------------------- */
+/* timeline and inspector */
 .tl-left { position: sticky; }
 .tl-name.layer.ae { gap: 2px; padding: 0 4px; height: 28px; }
 .ae-av { display: inline-flex; gap: 1px; flex: none; }
@@ -1311,7 +1311,7 @@ body.output-window::after { display: none; }
 .pt-bar button { background: none; border: 0; color: var(--muted); font: inherit; font-size: 0.8em; padding: 2px 7px; cursor: pointer; }
 .pt-bar button.on { background: var(--lime); color: #000; }
 
-/* ---- audio lab ------------------------------------------------------------------ */
+/* audio lab */
 .lab { display: flex; flex-direction: column; gap: 8px; min-height: 0; }
 .lab-bar, .ed-bar, .gen-bar, .lab-bands-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .lab-bar .select { width: auto; max-width: 280px; }
@@ -1771,7 +1771,7 @@ body.output-window::after { display: none; }
 .phone-top .logo { margin-right: auto; }
 
 
-/* ---- welcome: left aligned, editorial grid --------------------------------- */
+/* welcome: left aligned, editorial grid */
 .welcome {
   container-type: inline-size;
   display: flex; flex-direction: column; gap: clamp(56px, 8vw, 104px);
@@ -1827,7 +1827,7 @@ body.output-window::after { display: none; }
   .wl-flow li { grid-template-columns: 32px 60px minmax(0, 1fr); }
 }
 
-/* ---- every button: corner brackets close in on hover, like the website ---- */
+/* every button: corner brackets close in on hover, like the website */
 button { position: relative; }
 button::after {
   --cc: var(--lime); --cl: 7px; --cw: 2px;
@@ -1877,7 +1877,7 @@ button.btn:hover { transform: translate(-2px, -2px); }
 .pc-props label.mini:has(.range) { display: flex; }
 .pc-props label.mini .range { flex: 1; min-width: 80px; }
 
-/* ---- polish: one rhythm for spacing, quieter lines, clearer hierarchy ------- */
+/* polish: one rhythm for spacing, quieter lines, clearer hierarchy */
 .dock-body:not(.flush) { padding: 20px 24px 40px; }
 .dock-body:has(> .welcome) { padding: 0; }
 @media (max-width: 760px) { .dock-body:not(.flush) { padding: 12px 12px 32px; } }
@@ -1920,7 +1920,7 @@ h5 { letter-spacing: 0.1em; }
 .ws-tabs { min-width: 0; }
 .ws-tab { flex: none; }
 
-/* ---- tabs: one set of corners around the whole tab (close button included),
+/* tabs: one set of corners around the whole tab (close button included),
    pink on hover, labels close to white ---------------------------------------- */
 :root { --tab-text: #e2f5da; }
 .ws-tab, .ws-close, .dv-tab button { --cc: transparent; }
@@ -1950,7 +1950,7 @@ h5 { letter-spacing: 0.1em; }
 .ws-tab.on { color: var(--lime); }
 .ws-tab-wrap.on:hover .ws-tab { color: var(--pink); }
 
-/* ---- welcome, round 3: subtitle, a live signal, reveals ---------------------- */
+/* welcome, round 3: subtitle, a live signal, reveals */
 .wl-hero h1 { margin-bottom: 14px; }
 .wl-sub { font-family: var(--font-title); font-size: clamp(0.8rem, 1.25cqi, 1rem); letter-spacing: 0.14em; text-transform: uppercase; color: var(--tab-text, #e2f5da); margin: 0 0 34px; opacity: 0.85; }
 .wl-flow { position: relative; padding-left: 26px; }
@@ -2024,7 +2024,7 @@ h5 { letter-spacing: 0.1em; }
 .pt-knob circle { fill: var(--bg); stroke: var(--lime); stroke-width: 2; }
 .pt-bar { display: none; }
 
-/* ---- mapping: one page --------------------------------------------------------- */
+/* mapping: one page */
 .mp { container-type: inline-size; gap: 18px; }
 .mp-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
 .mp-top .select { width: auto; min-width: 140px; }
@@ -2082,7 +2082,7 @@ h5 { letter-spacing: 0.1em; }
 .ps-stats dt { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); }
 .ps-stats dd { margin: 4px 0 0; color: #fff; }
 
-/* ---- outputs: LEDs and hardware --------------------------------------------- */
+/* outputs: LEDs and hardware */
 .sd { container-type: inline-size; }
 .sd-layout { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: start; }
 @container (min-width: 820px) { .sd-layout { grid-template-columns: 260px minmax(0, 1fr); } }
@@ -2116,7 +2116,7 @@ h5 { letter-spacing: 0.1em; }
 .ps-row .input.num { width: 110px; }
 .create-preview { grid-template-rows: auto auto minmax(0, 1fr); }
 
-/* ---- buttons, round 4 ---------------------------------------------------------
+/* buttons, round 4
    Every button: Teletactile, heavier, with the corner brackets on hover.
    Main buttons only change their fill. Sub buttons (small, quiet, chips,
    segments) lift: a black one gets a green block behind it, a green one a
@@ -2189,7 +2189,7 @@ kbd { font-family: var(--font); -webkit-text-stroke: 0; font-size: 0.78em; paddi
 .outliner-list li.outliner-world { border-bottom: 1px solid var(--line, #2a3a2a); margin-bottom: 4px; padding-bottom: 2px; }
 .world-back { align-self: flex-start; margin-bottom: 8px; }
 
-/* ---- Motion: a calm compositing layout ----
+/* Motion: a calm compositing layout
    Tools in one row on top, the composition in the middle with its settings
    in the strip under it, the project list on the left, effect controls on
    the right and the timeline under everything. Quiet greys, green only for
@@ -2254,7 +2254,7 @@ kbd { font-family: var(--font); -webkit-text-stroke: 0; font-size: 0.78em; paddi
 .create-preview.comp .comp-size { width: 128px; }
 .create-preview.comp .viewer-bar .vb { white-space: nowrap; }
 
-/* ---- top chrome, round 5: calmer sizes, a clear order, more room ----
+/* top chrome, round 5: calmer sizes, a clear order, more room
    Workspace tabs are the biggest, panel tabs smaller, menus and search
    smaller still. Workspace tabs stay green when picked, panel tabs turn
    pink, so you can tell them apart. Both get the pink corners on hover. */
@@ -2276,7 +2276,7 @@ kbd { font-family: var(--font); -webkit-text-stroke: 0; font-size: 0.78em; paddi
 .dockview-theme-rico .dv-tab.dv-active-tab .dv-default-tab-action { color: var(--lime); opacity: 1; }
 .dockview-theme-rico .dv-tab .dv-default-tab-action:hover { color: var(--on-accent); background: var(--pink); }
 
-/* ---- the green tool strip on top of Motion and 3D ---- */
+/* the green tool strip on top of Motion and 3D */
 .app-main { display: flex; flex-direction: column; }
 .ws-host { flex: 1 1 auto; min-height: 0; position: relative; }
 .ws-host > * { height: 100%; }
@@ -2395,7 +2395,7 @@ kbd { font-family: var(--font); -webkit-text-stroke: 0; font-size: 0.78em; paddi
 .pc-strip .ts-label { display: inline-flex; align-items: center; gap: 4px; }
 .create-layers.project .pj-list { display: block; align-content: start; } .create-layers.project .pj-list li { min-height: 28px; }
 
-/* ---- tool strips, round 6: a black bar, green icons ---- */
+/* tool strips, round 6: a black bar, green icons */
 .tool-strip { background: #050805; color: var(--lime); border-bottom: 1px solid var(--line); }
 .tool-strip .ts-btn { color: var(--lime); }
 .tool-strip .ts-btn:hover { background: rgba(var(--lime-rgb), 0.14); color: #fff; }
@@ -2414,7 +2414,7 @@ kbd { font-family: var(--font); -webkit-text-stroke: 0; font-size: 0.78em; paddi
 .viewer-stage.tool-hand:active, .viewer-stage.tool-hand:active * { cursor: grabbing !important; }
 .viewer-stage.tool-zoom, .viewer-stage.tool-zoom * { cursor: zoom-in !important; }
 
-/* ---- panel tabs, round 6: the same as the workspace tabs ----
+/* panel tabs, round 6: the same as the workspace tabs
    Picked: green words, green X, a green line under it and a soft green glow.
    Hover (not picked): pink words and pink corners. */
 .dockview-theme-rico .dv-tab .dv-default-tab { display: flex; align-items: center; height: 100%; gap: 8px; }
@@ -2454,7 +2454,7 @@ select, .select, .select.mini { padding-right: 26px !important; text-overflow: e
 .group-pick-list .fold-items button.picked { color: var(--lime); }
 .group-pick-list .fold-items button.picked::before { content: '\25CF'; margin-right: 6px; font-size: 0.7em; }
 
-/* ---- welcome: the signal reel ----
+/* welcome: the signal reel
    A pulse runs along a wire through In, RICO and Out. Each station rolls to
    its next word as the pulse reaches it, so only one thing moves at a time. */
 .rl { --rl-h: clamp(1.25rem, 2.6cqi, 2rem); position: relative; display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; padding: 34px 0 30px; margin-top: 8px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); container-type: inline-size; }
@@ -2511,7 +2511,7 @@ select, .select, .select.mini { padding-right: 26px !important; text-overflow: e
 .inspector .three-shape .row .grow { min-width: 0; }
 .rl-word.on { opacity: 1; }
 
-/* ---- every dropdown opens the same menu ---- */
+/* every dropdown opens the same menu */
 .select-menu .select-flat { display: grid; }
 .select-menu .select-flat button, .select-menu .fold-items button { justify-content: flex-start; gap: 8px; text-align: left; }
 .select-menu .select-flat button { padding: 5px 10px; color: var(--text); }
@@ -2521,7 +2521,7 @@ select, .select, .select.mini { padding-right: 26px !important; text-overflow: e
 .select-menu .select-flat + .menu-fold { border-top: 1px solid var(--line); margin-top: 4px; padding-top: 4px; }
 .menu-list button:hover:not(:disabled) .dim { color: inherit; }
 
-/* ---- close X and small buttons: pink on hover, everywhere ---- */
+/* close X and small buttons: pink on hover, everywhere */
 .ws-tab-wrap:hover .ws-close, .ws-tab-wrap.on:hover .ws-close { color: var(--pink); }
 .ws-close:hover, .ws-tab-wrap.on .ws-close:hover { color: #050805 !important; background: var(--pink) !important; }
 .dockview-theme-rico .dv-tab:hover .dv-default-tab-action, .dockview-theme-rico .dv-tab.dv-active-tab:hover .dv-default-tab-action { color: var(--pink) !important; }
@@ -2718,7 +2718,7 @@ select, .select, .select.mini { padding-right: 26px !important; text-overflow: e
 .hint:hover i, .hint:focus i { border-color: var(--lime); color: var(--lime); }
 .hint.with-label { font-family: var(--font-title); letter-spacing: 0.06em; text-transform: uppercase; font-size: 10px; }
 
-/* ---- menus everywhere: one clear hierarchy ----
+/* menus everywhere: one clear hierarchy
    section labels: small pink caps; items: Teletactile at reading size;
    shortcuts: quiet Courier on the right; notes: small Courier. */
 .menu-list, .pop-menu, .tl-menu-list { font-size: 12px; padding: 5px; min-width: 220px; }

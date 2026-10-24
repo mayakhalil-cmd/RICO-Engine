@@ -67,7 +67,7 @@ export function addRule(part: Partial<Rule> = {}) { const r = newRule(part); set
 export function updateRule(id: string, part: Partial<Rule>) { setRules(rules.map((r) => (r.id === id ? { ...r, ...part } : r))) }
 export function removeRule(id: string) { setRules(rules.filter((r) => r.id !== id)) }
 
-// ---- matching ----
+// matching
 
 export function kindOf(e: LogEntry): MsgType | null {
   if (e.type === 'Note On' || e.type === 'Note Off') return 'note'

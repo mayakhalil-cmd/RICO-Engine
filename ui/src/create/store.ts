@@ -87,7 +87,7 @@ export function useCreate<T>(pick: (s: CreateState) => T): T {
 
 export const getCreate = () => state
 
-// ---- scene changes (all go through here so they can be undone) -------------
+// scene changes (all go through here so they can be undone)
 
 let saveTimer = 0
 function applyScene(scene: Scene, at: string | undefined = openId()) {
@@ -119,7 +119,7 @@ export function changeScene(label: string, fn: (s: Scene) => Scene, mergeKey?: s
   record({ label, key: mergeKey, undo: () => applyScene(before, at), redo: () => applyScene(after, at) })
 }
 
-// ---- precomps ----
+// precomps
 
 /** Opens a precomp in the viewer and the timeline (like double-clicking it). */
 export function openComp(id: string) {
@@ -190,7 +190,7 @@ export function setOutput(on: boolean) {
   }
 }
 
-// ---- the renderer, which owns its canvas -----------------------------------
+// the renderer, which owns its canvas
 
 let renderer: Renderer | null = null
 export const getRenderer = () => renderer

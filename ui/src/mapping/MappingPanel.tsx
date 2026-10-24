@@ -237,7 +237,7 @@ function Sec({ id, title, sub, children, start = true }: { id: string; title: st
   )
 }
 
-// ---- the layer stack: surfaces and masks, top first, like Photoshop ----
+// the layer stack: surfaces and masks, top first, like Photoshop
 function Layers({ out, map, pick, setPick, sources, setM }: {
   out: string; map: OutputMap; pick: Pick | null; setPick: (p: Pick | null) => void; sources: string[]
   setM: (fn: (m: OutputMap) => OutputMap, label?: string) => void

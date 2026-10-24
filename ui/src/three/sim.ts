@@ -192,7 +192,7 @@ function stepBodies(dt: number, list: Body[]) {
   }
 }
 
-// ---- liquid: particles that push apart, stick together a little, and pour ----
+// liquid: particles that push apart, stick together a little, and pour
 export function buildFluid(o: Obj3D, material: THREE.Material): THREE.Object3D {
   const set = { ...FLUID_DEFAULT, ...(o.fluid ?? {}) }
   const n = Math.max(50, Math.min(4000, Math.round(set.count)))

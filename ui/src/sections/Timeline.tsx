@@ -467,7 +467,7 @@ export default function TimelinePanel({ only3d = false }: { only3d?: boolean } =
   }
   const isSel = (target: string, t: number) => selKeys.some((k) => k.target === target && Math.abs(k.t - t) < 1e-6)
 
-  // ---- which properties show under each layer ----
+  // which properties show under each layer
   const shownDefs = (l: Layer): { name: string; defs: PropDef[] }[] => {
     const r = reveal[l.id]
     if (!r) return []
@@ -499,7 +499,7 @@ export default function TimelinePanel({ only3d = false }: { only3d?: boolean } =
     return [...ts].sort((a, b) => a - b)
   }
 
-  // ---- layer commands that need what is on screen ----
+  // layer commands that need what is on screen
   useEffect(() => onTimelineAction((action) => {
     const [name, arg] = action.split(':')
     if (name === 'delete') {
@@ -606,7 +606,7 @@ export default function TimelinePanel({ only3d = false }: { only3d?: boolean } =
     return () => el.removeEventListener('wheel', wheel)
   })
 
-  // ---- scrubbing the ruler ----
+  // scrubbing the ruler
   const onRulerDown = (e: RPointerEvent) => {
     ;(e.currentTarget as Element).setPointerCapture(e.pointerId)
     setScrubbing(true)
@@ -624,7 +624,7 @@ export default function TimelinePanel({ only3d = false }: { only3d?: boolean } =
     window.addEventListener('pointerup', up)
   }
 
-  // ---- dragging keys (all selected keys move together) ----
+  // dragging keys (all selected keys move together)
   const dragKey = (e: RPointerEvent, target: string, t: number, value?: { lo: number; hi: number; height: number; v: number }) => {
     e.stopPropagation()
     let sel = selKeys
