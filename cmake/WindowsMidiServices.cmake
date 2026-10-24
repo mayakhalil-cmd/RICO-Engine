@@ -9,10 +9,16 @@
 # RICO still builds and runs, it just can't make virtual ports.
 
 set(RICO_WINMIDI_PACKAGE "Microsoft.Windows.Devices.Midi2" CACHE STRING "NuGet package id")
-set(RICO_WINMIDI_VERSION "1.0.15-rc.2.15" CACHE STRING "NuGet package version")
+# Microsoft takes older preview versions off NuGet now and then, so a few are
+# tried in order. Set RICO_WINMIDI_VERSION to use only the one you want.
+set(RICO_WINMIDI_VERSION "" CACHE STRING "NuGet package version (empty: try the known ones)")
+set(RICO_WINMIDI_VERSIONS "1.0.17-rc.4.25;1.0.16-rc.3.20;1.0.15-rc.2.15;1.0.14-rc.1.209" CACHE STRING "Versions to try, newest first")
 set(RICO_CPPWINRT_VERSION "2.0.250303.1" CACHE STRING "C++/WinRT NuGet version")
 
+# Gets a NuGet package. With SOFT, a failed download sets out_dir to "" instead
+# of stopping the build.
 function(_rico_nuget id version out_dir)
+    cmake_parse_arguments(N "SOFT" "" "" ${ARGN})
     # 1. A copy you already have: packages/<id>.<version>/ next to this file's
     #    project (the same layout Visual Studio's NuGet uses).
     set(local ${CMAKE_SOURCE_DIR}/packages/${id}.${version})
@@ -31,6 +37,11 @@ function(_rico_nuget id version out_dir)
         list(GET result 0 code)
         if(NOT code EQUAL 0)
             file(REMOVE ${pkg})
+            if(N_SOFT)
+                message(STATUS "  ${id} ${version} is not on NuGet (${result})")
+                set(${out_dir} "" PARENT_SCOPE)
+                return()
+            endif()
             message(FATAL_ERROR "Could not download ${id} ${version} (${result}).\n"
                                 "Put the package in ${local}/ (for example from another project's "
                                 "packages folder), or configure with -DRICO_WITH_WINDOWS_MIDI=OFF.")
@@ -56,7 +67,26 @@ function(_rico_find_cppwinrt out)
 endfunction()
 
 function(rico_add_windows_midi target)
-    _rico_nuget(${RICO_WINMIDI_PACKAGE} ${RICO_WINMIDI_VERSION} midi_dir)
+    if(RICO_WINMIDI_VERSION)
+        set(versions ${RICO_WINMIDI_VERSION})
+    else()
+        set(versions ${RICO_WINMIDI_VERSIONS})
+    endif()
+    set(midi_dir "")
+    foreach(v IN LISTS versions)
+        _rico_nuget(${RICO_WINMIDI_PACKAGE} ${v} midi_dir SOFT)
+        if(midi_dir)
+            message(STATUS "Windows MIDI Services SDK ${v}")
+            break()
+        endif()
+    endforeach()
+    if(NOT midi_dir)
+        # RICO still builds and runs, only without virtual MIDI ports
+        message(WARNING "Could not get the Windows MIDI Services SDK from NuGet (tried ${versions}). "
+                        "RICO is built without virtual MIDI ports. Put the package in "
+                        "${CMAKE_SOURCE_DIR}/packages/${RICO_WINMIDI_PACKAGE}.<version>/ to add them.")
+        return()
+    endif()
     _rico_find_cppwinrt(cppwinrt)
     message(STATUS "cppwinrt: ${cppwinrt}")
 

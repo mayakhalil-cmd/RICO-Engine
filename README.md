@@ -1,13 +1,29 @@
 # RICO
 
-**Real-time Integration Control Operations.** RICO is a free signal hub and
-creative engine for Windows. It sits between your controllers, your creative apps
-and your hardware, and makes them talk to each other.
+**Real-time Integration Control Operations.** RICO is a free creative
+engine and signal hub for Windows. Make a whole piece inside it, or let it
+sit between your controllers, your creative apps and your hardware and make
+them talk to each other.
 
 Turn a knob on a MIDI controller and move a light in Unreal, a camera in
 Blender or a parameter in Houdini. Send the visuals you make in RICO to
 TouchDesigner or to another computer on your network. Plug in a homemade
 controller and use it everywhere.
+
+## An engine and a bridge
+
+RICO started as a bridge and is now a full engine. You can use it either
+way, or both at once:
+
+- **On its own.** Make the whole piece inside RICO: motion graphics on a
+  timeline, 3D scenes with living simulations, sound, lights, projection
+  mapping and LED walls, all running live and rendered from one place. You
+  do not need any other app.
+- **As a bridge.** Keep the apps you already use, and let RICO connect
+  them. A knob, a phone, a microphone or a sensor drives Unreal, Blender,
+  TouchDesigner, lights and hardware at the same time.
+- **Both.** Build part of the work in RICO and send it on, or bring signals
+  and video in from other apps and use them in RICO's own scenes.
 
 I made RICO because every app speaks a different language, and I was tired of
 needing five small tools to connect them. RICO is meant to be your right hand

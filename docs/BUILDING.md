@@ -117,10 +117,13 @@ and restart Visual Studio.
 vcpkg isn't being used. Check that `VCPKG_ROOT` is set (`echo $env:VCPKG_ROOT`)
 and delete the `build` folder before trying again.
 
-**"Could not download Microsoft.Windows.Devices.Midi2"**
-Copy the package folder you already have (for example from an older
-project's `packages` folder) to `packages\Microsoft.Windows.Devices.Midi2.<version>\`
-inside the RICO folder. RICO uses it instead of downloading.
+**"Could not get the Windows MIDI Services SDK" (a warning)**
+RICO tries a few versions of the package from NuGet, because Microsoft takes
+older preview versions down now and then. When none of them can be
+downloaded, the build still finishes, only without virtual MIDI ports. To add
+them, copy a package folder you already have to
+`packages\Microsoft.Windows.Devices.Midi2.<version>\` inside the RICO folder,
+or set the version that is on NuGet now with `-DRICO_WINMIDI_VERSION=...`.
 
 **The Windows MIDI Services step fails** (download or cppwinrt errors)
 Use the `windows-basic` preset. RICO works the same, just without virtual
