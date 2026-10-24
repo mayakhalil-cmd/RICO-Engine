@@ -1,0 +1,34 @@
+# build output
+/build/
+/build-*/
+/out/
+*.obj
+*.pdb
+*.ilk
+*.exe
+*.dll
+*.lib
+*.exp
+
+# editors
+.vs/
+.vscode/
+*.user
+*.aps
+imgui.ini
+
+# interface
+/ui/node_modules/
+/ui/dist/
+
+# fonts you add yourself (check the license before committing them)
+/ui/public/fonts/Teletactile.ttf
+
+# RICO settings when running from the source folder
+/data/
+
+# Python
+__pycache__/
+/ui/*.tsbuildinfo
+CMakeUserPresets.json
+/packages/

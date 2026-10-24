@@ -1,0 +1,14 @@
+{
+  "name": "rico",
+  "version": "3.0.0",
+  "description": "RICO, a signal router for MIDI, OSC, DMX, MQTT, Spout and network video.",
+  "homepage": "https://github.com/mayakhalil-cmd/RICO",
+  "license": "MIT",
+  "supports": "windows & x64",
+  "dependencies": [
+    "nlohmann-json",
+    "paho-mqttpp3",
+    "webview2"
+  ],
+  "builtin-baseline": "67972e92edd181d433927b42d8ab4bfa52ac164a"
+}

@@ -1,0 +1,47 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 24,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "windows",
+      "displayName": "Windows (everything)",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/build",
+      "toolchainFile": "${sourceDir}/cmake/vcpkg-toolchain.cmake",
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "x64-windows-static-md"
+      }
+    },
+    {
+      "name": "windows-basic",
+      "displayName": "Windows (no Windows MIDI Services)",
+      "inherits": "windows",
+      "binaryDir": "${sourceDir}/build-basic",
+      "cacheVariables": {
+        "RICO_WITH_WINDOWS_MIDI": "OFF"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "release",
+      "configurePreset": "windows",
+      "configuration": "Release"
+    },
+    {
+      "name": "debug",
+      "configurePreset": "windows",
+      "configuration": "Debug"
+    },
+    {
+      "name": "basic",
+      "configurePreset": "windows-basic",
+      "configuration": "Release"
+    }
+  ]
+}

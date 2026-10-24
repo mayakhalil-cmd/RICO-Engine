@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <title>RICO</title>
+    <style>
+      /* The start screen: drawn before any script runs, so the window is never empty. */
+      @font-face { font-family: 'Teletactile'; src: url('./fonts/Teletactile.ttf') format('truetype'); font-display: block; }
+      html, body { margin: 0; height: 100%; background: #000; }
+      #boot { position: fixed; inset: 0; display: grid; place-items: center; background: #000; color: #fff; font-family: 'Teletactile', 'Courier New', monospace; }
+      #boot .b { display: grid; justify-items: center; gap: 18px; }
+      #boot .w { font-size: clamp(40px, 9vh, 96px); font-weight: 700; letter-spacing: 0.04em; line-height: 1; }
+      #boot .w i { display: inline-block; width: 0.32em; height: 0.1em; margin-left: 0.08em; background: #3bff03; animation: bk 1s steps(1) infinite; }
+      #boot .l { position: relative; width: min(320px, 50vw); height: 2px; background: #143c0c; overflow: hidden; }
+      #boot .l::after { content: ''; position: absolute; top: 0; bottom: 0; width: 22%; background: #3bff03; box-shadow: 0 0 12px #3bff03; animation: run 1.3s cubic-bezier(.6, 0, .4, 1) infinite; }
+      #boot .s { font-size: 12px; letter-spacing: 0.18em; color: #78a06e; text-transform: uppercase; }
+      #boot .e { max-width: 560px; font: 13px/1.5 'Courier New', monospace; color: #ff6b6b; text-align: center; white-space: pre-wrap; }
+      @keyframes bk { 50% { opacity: 0 } }
+      @keyframes run { from { left: -22% } to { left: 100% } }
+      @media (prefers-reduced-motion: reduce) { #boot .w i, #boot .l::after { animation: none } }
+    </style>
+  </head>
+  <body>
+    <div id="root"><div id="boot" role="status" aria-label="RICO is starting"><div class="b"><div class="w">RICO<i></i></div><div class="l"></div><div class="s">Starting</div></div></div></div>
+    <script>
+      // If something stops the interface from starting, say so here instead of a black window.
+      (function () {
+        function show(msg) {
+          var b = document.getElementById('boot'); if (!b) return
+          var e = b.querySelector('.e') || b.firstChild.appendChild(Object.assign(document.createElement('div'), { className: 'e' }))
+          e.textContent = 'The interface could not start:\n' + msg + '\n\nStart RICO with --classic to use the classic interface.'
+          var s = b.querySelector('.s'); if (s) s.textContent = 'Stopped'
+        }
+        window.addEventListener('error', function (ev) { show(String(ev.message || ev.error || 'unknown error')) })
+        window.addEventListener('unhandledrejection', function (ev) { show(String((ev.reason && ev.reason.message) || ev.reason)) })
+      })()
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
