@@ -1,7 +1,9 @@
 # Additional permissions and terms
 
-RICO is licensed under the GNU Affero General Public License, version 3 or
-later (see LICENSE). Copyright (C) 2025-2026 Maya Khalil.
+RICO Engine is licensed under the GNU Affero General Public License, version 3
+or later (see LICENSE). Copyright (C) 2025-2026 Maya Khalil. This applies to
+every version of RICO Engine, including earlier releases and the beta, which
+were first shared under other terms.
 
 ## Additional permission under GNU AGPL version 3 section 7: NDI
 

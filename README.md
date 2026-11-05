@@ -1,12 +1,13 @@
-# RICO
+# RICO Engine
 
 **Real-time Integration Control Operations.** RICO is a free creative
 engine and signal hub for Windows. Make a whole piece inside it, or let it
 sit between your controllers, your creative apps and your hardware and make
 them talk to each other.
 
-[![Watch the RICO Engine preview](https://img.youtube.com/vi/nZg4tgeFwy8/maxresdefault.jpg)](https://www.youtube.com/watch?v=nZg4tgeFwy8)
-*Click to watch the preview on YouTube.*
+![Symbiote: any shape becomes living goo whose tendrils reach for what is near, grab on, stretch and snap](docs/images/symbiote.gif)
+
+**[Watch the RICO Engine preview on YouTube](https://www.youtube.com/watch?v=nZg4tgeFwy8)**
 
 Turn a knob on a MIDI controller and move a light in Unreal, a camera in
 Blender or a parameter in Houdini. Send the visuals you make in RICO to
@@ -35,10 +36,6 @@ someone building their own hardware.
 
 ## A look inside
 
-**Symbiote.** Any shape becomes living goo: tendrils reach for what is near, grab on, stretch and snap.
-
-![Symbiote tendrils reaching between two objects](docs/images/symbiote.gif)
-
 **From a photo to a mask.** Open a picture, click the object, and RICO cuts it out as a projection mask.
 
 ![Making a projection mask from a photo with smart select](docs/images/mask.gif)
@@ -64,7 +61,7 @@ someone building their own hardware.
 | Lights | | DMX over Art-Net |
 | Devices | MQTT (ESP32, Raspberry Pi) | MQTT |
 
-## What's new in RICO 3
+## What's inside
 
 - **A new interface.** Clean, fast and made for creative people, not only
   programmers. The original interface is still there as "classic".
@@ -239,8 +236,9 @@ way, and you can add others. Read [docs/PLUGINS.md](docs/PLUGINS.md).
 
 ## License
 
-RICO is free and open source under the
+RICO Engine is free and open source under the
 [GNU Affero General Public License, version 3 or later](LICENSE) (AGPL-3.0).
+This covers every version of RICO Engine, including earlier releases and the beta.
 
 - Use it for anything, including paid performances, installations, shows and
   client work. What you make with RICO is yours; the license does not cover it.
