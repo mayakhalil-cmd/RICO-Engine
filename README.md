@@ -5,6 +5,9 @@ engine and signal hub for Windows. Make a whole piece inside it, or let it
 sit between your controllers, your creative apps and your hardware and make
 them talk to each other.
 
+[![Watch the RICO Engine preview](https://img.youtube.com/vi/nZg4tgeFwy8/maxresdefault.jpg)](https://www.youtube.com/watch?v=nZg4tgeFwy8)
+*Click to watch the preview on YouTube.*
+
 Turn a knob on a MIDI controller and move a light in Unreal, a camera in
 Blender or a parameter in Houdini. Send the visuals you make in RICO to
 TouchDesigner or to another computer on your network. Plug in a homemade
@@ -29,6 +32,19 @@ I made RICO because every app speaks a different language, and I was tired of
 needing five small tools to connect them. RICO is meant to be your right hand
 for all of these protocols, whether you are a VJ, a 3D artist, a designer or
 someone building their own hardware.
+
+## A look inside
+
+![The overview: what comes in, what goes out](docs/images/rico-overview.png)
+
+| | |
+|---|---|
+| ![Motion: layers, effects and a timeline](docs/images/rico-motion.png) | ![3D: a scene with lights, materials and its own timeline](docs/images/rico-3d.png) |
+| **Motion.** Layers, effects, keyframes and live cues | **3D.** Scenes, lights and materials, driven by any signal |
+| ![3D modeling with bloom and world settings](docs/images/3d-modeling.png) | ![The audio lab: bands you shape and name](docs/images/audio-lab.png) |
+| **Modeling.** Model, sculpt and light, with bloom and world settings | **Audio lab.** Bands you shape and name, each one a signal |
+| ![Projection mapping: surfaces, masks, 3D objects and gobos](docs/images/projection-mapping.png) | <img src="docs/images/gobo-print.jpg" alt="A 3D-printed projector gobo made in RICO, next to the slicer preview"> |
+| **Projection mapping.** Surfaces, masks, 3D objects and gobos | **Print.** A mask cut from a photo, sliced and printed as a gobo, all inside RICO |
 
 ## What it speaks
 
