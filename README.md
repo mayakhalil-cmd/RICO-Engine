@@ -35,19 +35,6 @@ someone building their own hardware.
 
 ## A look inside
 
-![The overview: what comes in, what goes out](docs/images/rico-overview.png)
-
-| | |
-|---|---|
-| ![Motion: layers, effects and a timeline](docs/images/rico-motion.png) | ![3D: a scene with lights, materials and its own timeline](docs/images/rico-3d.png) |
-| **Motion.** Layers, effects, keyframes and live cues | **3D.** Scenes, lights and materials, driven by any signal |
-| ![3D modeling with bloom and world settings](docs/images/3d-modeling.png) | ![The audio lab: bands you shape and name](docs/images/audio-lab.png) |
-| **Modeling.** Model, sculpt and light, with bloom and world settings | **Audio lab.** Bands you shape and name, each one a signal |
-| ![Projection mapping: surfaces, masks, 3D objects and gobos](docs/images/projection-mapping.png) | <img src="docs/images/gobo-print.jpg" alt="A 3D-printed projector gobo made in RICO, next to the slicer preview"> |
-| **Projection mapping.** Surfaces, masks, 3D objects and gobos | **Print.** A mask cut from a photo, sliced and printed as a gobo, all inside RICO |
-
-## See it move
-
 **Symbiote.** Any shape becomes living goo: tendrils reach for what is near, grab on, stretch and snap.
 
 ![Symbiote tendrils reaching between two objects](docs/images/symbiote.gif)
