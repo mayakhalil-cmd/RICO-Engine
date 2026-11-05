@@ -46,6 +46,26 @@ someone building their own hardware.
 | ![Projection mapping: surfaces, masks, 3D objects and gobos](docs/images/projection-mapping.png) | <img src="docs/images/gobo-print.jpg" alt="A 3D-printed projector gobo made in RICO, next to the slicer preview"> |
 | **Projection mapping.** Surfaces, masks, 3D objects and gobos | **Print.** A mask cut from a photo, sliced and printed as a gobo, all inside RICO |
 
+## See it move
+
+**Symbiote.** Any shape becomes living goo: tendrils reach for what is near, grab on, stretch and snap.
+
+![Symbiote tendrils reaching between two objects](docs/images/symbiote.gif)
+
+**From a photo to a mask.** Open a picture, click the object, and RICO cuts it out as a projection mask.
+
+![Making a projection mask from a photo with smart select](docs/images/mask.gif)
+
+**From the mask to a gobo.** The mask becomes a gobo plate with a sleeve that slides snugly over the projector lens.
+
+![Turning the mask into a lens gobo and slicing it](docs/images/gobo.gif)
+
+**Sliced and printed, without leaving RICO.** Supports, settings and Send and print, straight to the printer.
+
+| | |
+|---|---|
+| ![Slicing the gobo with tree supports](docs/images/print-slicer.gif) | ![Sending the gobo to the printer, which starts printing](docs/images/print.gif) |
+
 ## What it speaks
 
 | | In | Out |
