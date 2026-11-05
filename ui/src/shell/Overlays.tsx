@@ -317,7 +317,7 @@ export default function Overlays() {
       {overlay === 'about' && (
         <Dialog title="RICO">
           <p>Real-time Integration Control Operations. A free hub for MIDI, OSC, DMX, MQTT, Spout and network video.</p>
-          <p className="muted small">Made by Maya Khalil. Business Source License 1.1, Apache 2.0 from 2030. See THIRD_PARTY_NOTICES.md for the projects RICO is built on.</p>
+          <p className="muted small">Made by Maya Khalil. Free and open source under the GNU AGPL 3.0 or later; source code at github.com/mayakhalil-cmd/RICO-Engine. See THIRD_PARTY_NOTICES.md for the projects RICO is built on.</p>
         </Dialog>
       )}
       <QuestionDialog />

@@ -216,12 +216,22 @@ way, and you can add others. Read [docs/PLUGINS.md](docs/PLUGINS.md).
 
 ## License
 
-RICO is free to use under the
-[Business Source License 1.1](LICENSE). You can use it for anything,
-including paid performances, installations, shows and client work. What you
-cannot do is sell RICO itself, or a changed copy of it, or offer it as a
-paid service. On 24 October 2030 this version becomes open source under the
-[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+RICO is free and open source under the
+[GNU Affero General Public License, version 3 or later](LICENSE) (AGPL-3.0).
+
+- Use it for anything, including paid performances, installations, shows and
+  client work. What you make with RICO is yours; the license does not cover it.
+- If you share RICO, or a changed copy of it, you share its full source code
+  under the same license.
+- If you run a changed copy for other people over a network (as a web app, a
+  hosted service or a remote control page), you offer them its source code too.
+- Tools and patches that only talk to RICO over OSC, MIDI, DMX, MQTT, Spout or
+  network video are separate works and can use any license.
+
+[LICENSE-EXCEPTIONS.md](LICENSE-EXCEPTIONS.md) adds one permission: the
+optional NDI plugin may load the NDI runtime, which has its own license.
+The name RICO and the RICO logo are not covered by the license; see
+[LICENSE-EXCEPTIONS.md](LICENSE-EXCEPTIONS.md).
 
 The projects RICO is built on keep their own licenses, listed in
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

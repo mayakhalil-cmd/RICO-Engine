@@ -33,6 +33,13 @@ every screen without RICO running.
 
 ## License
 
-By contributing you agree that your work is released under the license of
-this project (Business Source License 1.1, which becomes Apache 2.0 on the
-Change Date in [LICENSE](LICENSE)).
+RICO is under the GNU Affero General Public License, version 3 or later
+(see [LICENSE](LICENSE)). By contributing you agree that:
+
+- your work is released under that license, and you have the right to
+  release it (it is your own, or under a license that allows it);
+- Maya Khalil may also release your contribution under other open source
+  licenses in the future, so the project can change license as a whole.
+
+Add a line `Signed-off-by: Your Name <your email>` to each commit
+(`git commit -s` does it) to say you agree.

@@ -1,6 +1,7 @@
 # Third party notices
 
-RICO is under the Business Source License 1.1 (see LICENSE). It is built with the open source projects below. Their
+RICO is under the GNU Affero General Public License, version 3 or later (see LICENSE and
+LICENSE-EXCEPTIONS.md). It is built with the open source projects below. Their
 licenses are kept next to their code in `third_party/`, or in the package
 they come from.
 
@@ -23,7 +24,7 @@ they come from.
 
 | Project | Used for | License |
 | --- | --- | --- |
-| Eclipse Paho MQTT C and C++ | MQTT | Eclipse Public License 2.0 or Eclipse Distribution License 1.0 (BSD) |
+| Eclipse Paho MQTT C and C++ | MQTT | Eclipse Public License 2.0 or Eclipse Distribution License 1.0 (BSD); RICO uses it under the Eclipse Distribution License 1.0 |
 | nlohmann/json | Settings and the interface bridge | MIT |
 | Microsoft WebView2 SDK | Showing the interface | BSD 3-Clause (WebView2 SDK license) |
 | Windows MIDI Services App SDK | Virtual MIDI ports | MIT |
